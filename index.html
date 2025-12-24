@@ -104,38 +104,40 @@ var LZString=function(){var r=String.fromCharCode,o="ABCDEFGHIJKLMNOPQRSTUVWXYZa
 		<div id="init-lacking"><p>Browser lacks capabilities required to play.</p><p>Upgrade or switch to another browser.</p></div>
 		<div id="init-loading"><div>Loading&hellip;</div></div>
 	</div>
-	<tw-storydata name="Elintarvike-ala" startnode="16" creator="Twine" creator-version="2.11.1" format="SugarCube" format-version="2.37.3" ifid="6d205d48-9be7-4a4e-8b3a-33ca2b301225" options="" tags="" zoom="1" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">/* ============================================================
-   0. MAISTUVA AMMATTI – TEEMAVÄRIT JA PERUSASPETTI 
+	<tw-storydata name="Elintarvike-ala" startnode="9" creator="Twine" creator-version="2.11.1" format="SugarCube" format-version="2.37.3" ifid="6d205d48-9be7-4a4e-8b3a-33ca2b301225" options="" tags="" zoom="1" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">/* ============================================================
+   0. MAISTUVA AMMATTI – TEEMAVÄRIT JA PERUSASPETTI
    ============================================================ */
 
-/* Taustat ja perusvärit */
 :root {
-  --bg-body: #F7F2E9;            /* vaalea creme tausta */
-  --text-main: #000000;  
+  --bg-body: #F7F2E9;
+  --text-main: #2B1F18;
 
-  --accent-1: #D98C5E;           /* pääkorostus (lämpö, nappien väri) */
-  --accent-2: #9EBE8E;           /* toinen korostus (vihreä, toissijaiset elementit) */
-  --accent-3: #F2C94C;           /* kolmas korostus (keltainen) */
+  --accent-1: #D98C5E;
+  --accent-2: #9EBE8E;
+  --accent-3: #F2C94C;
 
-  --btn-bg: #D98C5E;             /* nappien pohjaväri */
-  --btn-text: #FFFFFF;           /* nappien tekstiväri */
+  --btn-bg: #E2B84A;
+  --btn-text: #FFFFFF;
 
-  --card-bg: #FFF9F2;            /* kortin vaalea tausta */
-  --card-border: #D6C8B7;        /* kortin rajaus */
+  --card-bg: #FFF9F2;
+  --card-border: #D6C8B7;
 
-  --link-text: #9EBE8E;          /* linkki tekstissä */
-  --nav-bg: rgba(255, 255, 255, 0.95); /* navbarin hieman vaalea */
-  --nav-border: rgba(220, 200, 180, 0.45);
+  --link-text: #9EBE8E;
+  --nav-bg: rgba(255,255,255,0.95);
+  --nav-border: rgba(220,200,180,0.45);
 
-  --score-color: #F2C94C;        /* piste/korostus */
-  --danger-bg: #EF5350;          /* vaaranapin väri */
+  --score-color: #F2C94C;
+  --danger-bg: #7A1F2B;
+  --highlight-color: #7A1F2B;
 }
 
-/* BODY JA PASSAGE */
+  
+ /* BODY JA PASSAGE */
 body {
   background: var(--bg-body);
   color: var(--text-main);
 }
+
 #passages .passage {
   color: var(--text-main);
 }
@@ -152,7 +154,7 @@ body {
 .navbar-fixed button.btn {
   background: var(--btn-bg);
   color: var(--btn-text) !important;
-  border: 2px solid rgba( var(--btn-bg), 0.8);
+  border: 2px solid #C77A4F;   /* KIINTEÄ SÄVY → TOIMII VARMASTI */
   border-radius: 999px;
 
   padding: 0.75rem 1.6rem;
@@ -177,14 +179,14 @@ body {
   box-shadow: 0 2px 0 rgba(0,0,0,0.30);
 }
 
-/* VAARANAPPI / POISTU */
 .btn--danger {
   background: var(--danger-bg);
   color: #fff !important;
-  border-color: #C62828;
+  border-color: #4A1414;
 }
-
-
+body.hide-navbar .navbar-fixed {
+  display: none !important;
+}
 
 /* ============================================================
    1. POISTA SUGARCUBEN OLETUS-UI
@@ -236,6 +238,7 @@ body {
   border: none;
   box-shadow: none;
 }
+
 
 /* ============================================================
    4. TYPOGRAFIA
@@ -363,6 +366,18 @@ body {
   box-shadow: 0 2px 0 rgba(0,0,0,0.3);
 }
 
+.answer-group {
+  display: flex;
+  flex-direction: row;      /* NAPIT VIEREKKÄIN */
+  justify-content: center;
+  align-items: stretch;
+  gap: 0.75rem;
+  flex-wrap: wrap;          /* sallii rivittymisen pienellä näytöllä */
+}
+.answer-group a {
+  width: auto;
+  min-width: 140px;
+}
 
 
 /* ============================================================
@@ -428,6 +443,114 @@ body.hide-navbar .navbar-fixed {
   font-weight: 800;
   color: var(--accent-1);
   text-align: center;
+}
+a.macro-link.btn--danger {
+  background: var(--danger-bg) !important;
+  border-color: #4A1414 !important;
+  color: #ffffff !important;
+}
+p.highlight {
+  color: var(--highlight-color) !important;
+  font-weight: 700;
+}
+a.macro-link.btn--danger {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.lomake-ryhma textarea {
+  width: 100%;
+  min-height: 8rem;
+  padding: 1rem 1.1rem;
+  font-size: 1rem;
+  line-height: 1.6;
+  border-radius: 16px;
+  border: 2px solid var(--card-border);
+  box-sizing: border-box;
+}
+/* Ammattitutkimus – suuret ja korkeat tekstikentät (varma yliajo) */
+#passages .lomake-ryhma textarea {
+  width: 100% !important;
+  min-height: 10rem !important;
+  height: 10rem !important;
+  padding: 1rem 1.1rem !important;
+
+  font-size: 1rem !important;
+  line-height: 1.6 !important;
+
+  border-radius: 16px !important;
+  border: 2px solid var(--card-border) !important;
+  background: #ffffff !important;
+
+  box-sizing: border-box !important;
+  resize: vertical;
+}
+
+/* Jos jokin kenttä on vielä textbox (input), tee siitäkin selvästi korkeampi */
+#passages .lomake-ryhma input[type="text"] {
+  width: 100% !important;
+  min-height: 3.2rem !important;
+  padding: 0.9rem 1.1rem !important;
+
+  font-size: 1rem !important;
+  line-height: 1.5 !important;
+
+  border-radius: 14px !important;
+  border: 2px solid var(--card-border) !important;
+  background: #ffffff !important;
+
+  box-sizing: border-box !important;
+}
+/* Ammattitutkimuksen lomakkeen kirjoitustekstin väri */
+#passages .lomake-ryhma tex/* KANSISIVU – julistemainen, varma yliajo */
+#passages .passage .cover-link {
+  display: flex !important;
+  min-height: 100vh !important;
+  width: 100% !important;
+
+  justify-content: center !important;
+  align-items: center !important;
+  text-align: center !important;
+
+  background: var(--bg-body) !important;
+  color: var(--text-main) !important;
+
+  text-decoration: none !important;
+  cursor: pointer !important;
+  box-sizing: border-box !important;
+  padding: 2.5rem 1.5rem !important;
+}
+
+#passages .passage .cover-inner {
+  max-width: 900px !important;
+}
+
+#passages .passage .cover-title {
+  font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif !important;
+  font-weight: 900 !important;
+  letter-spacing: 0.08em !important;
+  line-height: 0.95 !important;
+
+  font-size: 3rem !important;
+  color: var(--accent-1) !important;
+  margin: 0 !important;
+}
+
+#passages .passage .cover-subtitle {
+  font-size: clamp(1.1rem, 2.8vw, 1.6rem) !important;
+  margin-top: 1.6rem !important;
+}
+
+#passages .passage .cover-hint {
+  margin-top: 2.6rem !important;
+  opacity: 0.75 !important;
+}
+tarea,
+#passages .lomake-ryhma input[type="text"] {
+  color: #000000 !important;
+}
+#passages .passage .cover-link {
+  text-decoration: none !important;
 }
 </style><script role="script" id="twine-user-script" type="text/twine-javascript">(function () {
   "use strict";
@@ -537,30 +660,12 @@ window.confirmExitStory = function () {
     window.close();
   }
 };
-</script><tw-passagedata pid="1" name="Start" tags="" position="575,100" size="100,100">&lt;div class=&quot;quiz-page&quot;&gt;
-  &lt;h1&gt;[ALAN NIMI]&lt;/h1&gt;
-  &lt;hr&gt;
+</script><tw-passagedata pid="1" name="StoryInit" tags="" position="725,50" size="100,100">&lt;&lt;set $score = 0&gt;&gt;
 
-  &lt;p&gt;
-    Tervetuloa tutustumaan [alan nimi] -alaan. Tällä sivustolla voit testata,
-    miten hyvin ala voisi sopia sinulle, sekä tutkia ammatteja ja koulutusta.
-  &lt;/p&gt;
+&lt;&lt;set $hideNavbar = true&gt;&gt;
+&lt;&lt;set $hideNavbar = false&gt;&gt;
 
-  &lt;div class=&quot;intro-nappi&quot;&gt;
-    [[Aloita ammattitesti-&gt;Johdanto]]
-    [[Tutustu videoihin ja ammattiesimerkkeihin-&gt;Ammattivideot]]
-    [[Siirry suoraan ammattitutkimustehtävään-&gt;Ammattitutkimus: lomake]]
-  &lt;/div&gt;
-&lt;/div&gt;
-</tw-passagedata><tw-passagedata pid="2" name="StoryInit" tags="" position="750,100" size="100,100">:: StoryInit
-/* Pisteet / testi */
-&lt;&lt;set $pisteet = 0&gt;&gt;
-&lt;&lt;set $maxKysymykset = 10&gt;&gt;
 
-/* Esimerkkiflagit kysymyksille (voit lisätä) */
-&lt;&lt;set $q1Done = false&gt;&gt;
-&lt;&lt;set $q2Done = false&gt;&gt;
-&lt;&lt;set $q3Done = false&gt;&gt;
 
 /* Ammattitutkimus-lomakkeen kentät */
 &lt;&lt;set $ammattiNimi = &quot;&quot;&gt;&gt;
@@ -581,317 +686,183 @@ window.confirmExitStory = function () {
   osa2: {},
   osa3: {}
 }&gt;&gt;
-</tw-passagedata><tw-passagedata pid="3" name="Kysymys1" tags="" position="400,450" size="100,100">&lt;div class=&quot;quiz-page&quot;&gt;
-  &lt;h1&gt;Kysymys 1&lt;/h1&gt;
-  &lt;hr&gt;
+</tw-passagedata><tw-passagedata pid="2" name="Kysymys 1" tags="" position="400,450" size="100,100">&lt;h2&gt;Kysymys 1 / 10&lt;/h2&gt;
 
-  &lt;p&gt;
-    [Kirjoita tähän kysymys, esim. “Mikä näistä taidoista liittyy vahvimmin
-    tähän alaan?”]
-  &lt;/p&gt;
+&lt;p&gt;Pidänkö ruoan tekemisestä tai leipomisesta?&lt;/p&gt;
 
-  &lt;p&gt;Valitse yksi vaihtoehdoista:&lt;/p&gt;
+&lt;div class=&quot;answer-group&quot;&gt;
 
-  [[Oikea vastaus-&gt;Oikein 1]]
-  [[Väärä vaihtoehto A-&gt;Väärin 1]]
-  [[Väärä vaihtoehto B-&gt;Väärin 1]]
-&lt;/div&gt;
-</tw-passagedata><tw-passagedata pid="4" name="Jatkatko" tags="" position="600,700" size="100,100">:: Jatkatko
-&lt;h1&gt;Haluatko jatkaa?&lt;/h1&gt;
-&lt;p&gt;Tämä voidaan näyttää esim. 4 kysymyksen välein.&lt;/p&gt;
+&lt;&lt;link &quot;Kyllä&quot;&gt;&gt;
+  &lt;&lt;set $score += 2&gt;&gt;
+  &lt;&lt;goto &quot;Kysymys 2&quot;&gt;&gt;
+&lt;&lt;/link&gt;&gt;
 
-[[Kyllä-&gt;SeuraavaOsio]]
-[[Ei-&gt;Loppusivu]]
-</tw-passagedata><tw-passagedata pid="5" name="SeuraavaOsio" tags="" position="400,800" size="100,100"></tw-passagedata><tw-passagedata pid="6" name="Loppusivu" tags="" position="850,625" size="100,100">
-&lt;div class=&quot;quiz-page&quot;&gt;
+&lt;&lt;link &quot;Joskus / ehkä&quot;&gt;&gt;
+  &lt;&lt;set $score += 1&gt;&gt;
+  &lt;&lt;goto &quot;Kysymys 2&quot;&gt;&gt;
+&lt;&lt;/link&gt;&gt;
+
+&lt;&lt;link &quot;Ei&quot;&gt;&gt;
+  &lt;&lt;goto &quot;Kysymys 2&quot;&gt;&gt;
+&lt;&lt;/link&gt;&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="3" name="Loppusivu" tags="" position="850,625" size="100,100">&lt;div class=&quot;quiz-page&quot;&gt;
   &lt;h1&gt;Hienoa työtä!&lt;/h1&gt;
   &lt;hr&gt;
 
   &lt;p&gt;
-    Olet jaksanut kulkea tämän [alan] tarinan loppuun asti. Se kertoo,
-    että sinulla on sinnikkyyttä, halua oppia uutta ja uskallusta pohtia
-    omaa tulevaisuuttasi – samoja taitoja, joita työelämässä arvostetaan.
+Olet tutustunut elintarvikealaan ja pohtinut omaa tulevaisuuttasi. Se on tärkeä taito – ja kertoo, että uskallat miettiä omia unelmiasi.
   &lt;/p&gt;
 
   &lt;p&gt;
-    Työelämä tarvitsee monenlaisia osaajia: käytännön tekijöitä,
-    suunnittelijoita, ongelmanratkaisijoita ja tutkijoita. Jokaisella on
-    oma paikkansa – myös sinulla.
-  &lt;/p&gt;
-
-  &lt;p&gt;
-    Voit halutessasi palata tutkimaan eri ammatteja, katsoa ammattivideoita,
-    selata oppilaitosten sivuja tai aloittaa testin alusta ja nähdä,
-    herääkö uusia ajatuksia.
+Elintarvikealalla tarvitaan monenlaisia tekijöitä:  leipojia, ruoan valmistajia, pakkaajia, suunnittelijoita,
+laatu- ja turvallisuusosaajia. Jokaiselle löytyy oma paikka. Ruoalla on aina merkitys ihmisille. Elintarvikealalla tehtävä työ näkyy joka päivä kaupoissa, kouluissa, sairaaloissa ja kodeissa.
   &lt;/p&gt;
 
   &lt;p class=&quot;highlight&quot; style=&quot;text-align:center; margin-top:2rem;&quot;&gt;
-    Uskalla tavoitella, oppia ja unelmoida – tulevaisuus on enemmän auki kuin koskaan.
+
+    Jokainen polku alkaa yhdestä askeleesta.  
+    Ehkä sinun ensimmäinen askeleesi on elintarvikeala.
   &lt;/p&gt;
 
   &lt;div class=&quot;intro-nappi&quot;&gt;
-    [[Palaa tarinan alkuun-&gt;Start]]
-    &lt;button class=&quot;exit-btn&quot; onclick=&quot;confirmExitStory()&quot;&gt;
-      Sulje esitys
-    &lt;/button&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-</tw-passagedata><tw-passagedata pid="7" name="Johdanto" tags="" position="550,225" size="100,100">&lt;div class=&quot;quiz-page&quot;&gt;
-  &lt;h1&gt;Johdanto [alaan]&lt;/h1&gt;
+    [[Palaa tarinan alkuun-&gt;start]]
+    &lt;a href=&quot;javascript:void(0)&quot;
+       class=&quot;macro-link btn--danger&quot;
+       onclick=&quot;confirmExitStory()&quot;&gt;
+      Sulje
+    &lt;/a&gt;
+  &lt;/div&gt;</tw-passagedata><tw-passagedata pid="4" name="start" tags="" position="600,100" size="100,100">&lt;&lt;script&gt;&gt;
+$(&#39;body&#39;).removeClass(&#39;hide-navbar&#39;);
+&lt;&lt;/script&gt;&gt;
+
+
+&lt;div class=&quot;quiz-page&quot;&gt;
+  &lt;h1&gt;ELINTARVIKEALA&lt;/h1&gt;
   &lt;hr&gt;
 
   &lt;p&gt;
-    [Kirjoita tähän selkeä, lyhyt johdanto alaan: missä tätä tehdään, millaista
-    osaamista tarvitaan, miksi ala on tärkeä tulevaisuudessa.]
-  &lt;/p&gt;
-
-  &lt;p&gt;
-    Ammattitestissä pääset pohtimaan, millaiset tehtävät ja vahvuudet liittyvät
-    alaan ja voisiko se sopia juuri sinulle.
+ Elintarvikeala on ala, jossa valmistetaan ruokaa ja juomia ihmisille. Alalla tehdään monenlaisia töitä: suunnitellaan uusia tuotteita, tuotetaan ruokaa tehtaissa, pakataan elintarvikkeita ja huolehditaan, että ruoka on turvallista ja hyvälaatuista. Elintarvikealan ammateissa on sekä käytännön työtä että luovaa tekemistä, ja työpaikkoja löytyy ympäri Suomea.
   &lt;/p&gt;
 
   &lt;div class=&quot;intro-nappi&quot;&gt;
-    [[Siirry ammattitestiin-&gt;Ammattitesti: alku]]
-    [[Palaa aloitussivulle-&gt;Start]]
+    [[Sopiiko tämä ala sinulle - Testaa!-&gt;Ammattitesti: alku]]
   &lt;/div&gt;
 &lt;/div&gt;
-</tw-passagedata><tw-passagedata pid="8" name="Ammattivideot" tags="" position="750,250" size="100,100">&lt;div class=&quot;quiz-page&quot;&gt;
-  &lt;h1&gt;[Alan] ammatteja ja tulevaisuus&lt;/h1&gt;
+</tw-passagedata><tw-passagedata pid="5" name="Ammattitutkimus: lomake" tags="" position="825,400" size="100,100">&lt;div class=&quot;quiz-page&quot;&gt;
+  &lt;h1&gt;Ammattitutkimus – Elintarvikeala&lt;/h1&gt;
   &lt;hr&gt;
 
   &lt;p&gt;
-    Tällä sivulla voit tutustua [alan] ammatteihin ja tulevaisuuden osaamistarpeisiin
-    videoiden ja lyhyiden tekstien avulla.
-  &lt;/p&gt;
-
-  &lt;div class=&quot;media-card&quot;&gt;
-    &lt;h2&gt;Video 1 – [vaihda otsikko]&lt;/h2&gt;
-    &lt;div class=&quot;video-wrapper&quot;&gt;
-      &lt;iframe
-        src=&quot;&lt;&lt;= $videos.osa1.intro &gt;&gt;&quot;
-        allow=&quot;autoplay; encrypted-media&quot;
-        allowfullscreen&gt;
-      &lt;/iframe&gt;
-    &lt;/div&gt;
-    &lt;p class=&quot;video-desc&quot;&gt;
-      [Lyhyt kuvaus videon sisällöstä.]
-    &lt;/p&gt;
-  &lt;/div&gt;
-
-  &lt;!-- Lisää tarvittaessa lisää media-card -blokkeja tälle sivulle --&gt;
-
-  &lt;div class=&quot;intro-nappi&quot;&gt;
-    [[Siirry oppilaitoksiin-&gt;Oppilaitokset]]
-    [[Palaa alkuun-&gt;Start]]
-  &lt;/div&gt;
-&lt;/div&gt;
-</tw-passagedata><tw-passagedata pid="9" name="Ammattitutkimus: lomake" tags="" position="825,375" size="100,100">&lt;div class=&quot;quiz-page&quot;&gt;
-  &lt;h1&gt;Ammattitutkimus&lt;/h1&gt;
-  &lt;hr&gt;
-
-  &lt;p&gt;
-    Valitse jokin [alan] ammatti, joka sinua kiinnostaa. Tutki sitä luotettavista
-    lähteistä (esim. Työmarkkinatori, Duunitori, oppilaitosten sivut).
-    Vastaa kysymyksiin mahdollisimman konkreettisesti.
+ Valitse jokin elintarvikealan ammatti, joka sinua kiinnostaa. Tutki sitä luotettavista lähteistä (esim. Työmarkkinatori, Duunitori, oppilaitosten sivut). Vastaa kysymyksiin omin sanoin ja mahdollisimman konkreettisesti.
   &lt;/p&gt;
 
   &lt;p&gt;
-    Lopuksi saat yhteenvedon vastauksistasi, jonka voit kopioida omaan
-    Google Docs -dokumenttiisi tai ladata vastaukset tekstitiedostona.
+Lopuksi saat yhteenvedon vastauksistasi, jonka voit kopioida omaan Google Docs -dokumenttiisi tai ladata tekstitiedostona.
   &lt;/p&gt;
 
   &lt;div class=&quot;lomake-ryhma&quot;&gt;
     &lt;label class=&quot;lomake-label&quot;&gt;1. Ammatin nimi&lt;/label&gt;
     &lt;p class=&quot;lomake-ohje&quot;&gt;
-      Mihin [alan] ammattiin tutustut tarkemmin?
+      Minkä elintarvikealan ammatin valitsit? (Esim. leipuri-kondiittori, elintarviketyöntekijä)
     &lt;/p&gt;
-     &lt;&lt;textbox &quot;$ammattiNimi&quot; &quot;&quot;&gt;&gt;
-
+    &lt;&lt;textbox &quot;$ammattiNimi&quot; &quot;&quot; 2 40&gt;&gt;
   &lt;/div&gt;
 
   &lt;div class=&quot;lomake-ryhma&quot;&gt;
     &lt;label class=&quot;lomake-label&quot;&gt;2. Koulutuspolku ammattiin&lt;/label&gt;
     &lt;p class=&quot;lomake-ohje&quot;&gt;
-      Kuvaile, millaisia koulutuspolkuja tähän ammattiin voi johtaa
-      (esim. peruskoulu → ammatillinen koulutus → työelämä → AMK).
+      Miten tähän ammattiin voi päästä? Kirjoita mahdollinen polku
+      peruskoulusta eteenpäin.
+      (Esim. peruskoulu → ammatillinen koulutus → työelämä → jatko-opinnot)
     &lt;/p&gt;
-    &lt;&lt;textbox &quot;$KoulutusPolku&quot; &quot;&quot;&gt;&gt;
-
+    &lt;&lt;textbox &quot;$KoulutusPolku&quot;  &quot;&quot; 4 40&gt;&gt;
   &lt;/div&gt;
 
   &lt;div class=&quot;lomake-ryhma&quot;&gt;
-    &lt;label class=&quot;lomake-label&quot;&gt;3. Mitä työtehtäviä ammatissa tehdään?&lt;/label&gt;
+    &lt;label class=&quot;lomake-label&quot;&gt;3. Mitä työssä tehdään?&lt;/label&gt;
     &lt;p class=&quot;lomake-ohje&quot;&gt;
-      Kerro esimerkkejä työtehtävistä ja työn sisällöstä.
+      Kerro konkreettisesti, millaisia työpäiviä ammatissa on.
+      Mitä asioita tehdään käsillä tai koneilla?
     &lt;/p&gt;
-    &lt;&lt;textbox &quot;$tyotehtavat&quot; &quot;&quot;&gt;&gt;
-
+    &lt;&lt;textbox &quot;$tyotehtavat&quot; &quot;&quot; 4 40&gt;&gt;
   &lt;/div&gt;
 
   &lt;div class=&quot;lomake-ryhma&quot;&gt;
-    &lt;label class=&quot;lomake-label&quot;&gt;4. Missä työpaikoissa voi työskennellä?&lt;/label&gt;
+    &lt;label class=&quot;lomake-label&quot;&gt;4. Missä työpaikoissa tätä työtä tehdään?&lt;/label&gt;
     &lt;p class=&quot;lomake-ohje&quot;&gt;
-      Millaisissa yrityksissä tai organisaatioissa tätä työtä tehdään?
+      Esimerkiksi leipomot, tehtaat, kaupat, ravintolat, koulut, sairaalat.
     &lt;/p&gt;
- &lt;&lt;textbox &quot;$tyopaikat&quot; &quot;&quot;&gt;&gt;
-
+    &lt;&lt;textbox &quot;$tyopaikat&quot; &quot;&quot; 4 40&gt;&gt;
   &lt;/div&gt;
 
   &lt;div class=&quot;lomake-ryhma&quot;&gt;
-    &lt;label class=&quot;lomake-label&quot;&gt;5. Mitä vahvuuksia ammatissa tarvitaan?&lt;/label&gt;
+    &lt;label class=&quot;lomake-label&quot;&gt;5. Millaisia taitoja ja ominaisuuksia työssä tarvitaan?&lt;/label&gt;
     &lt;p class=&quot;lomake-ohje&quot;&gt;
-      Esimerkiksi huolellisuus, käden taidot, vuorovaikutustaidot, kielitaito...
+      Esim. huolellisuus, käsillä tekeminen, tiimityö, täsmällisyys,
+      siisteys, kielitaito.
     &lt;/p&gt;
-    &lt;&lt;textbox &quot;$vahvuudet&quot; &quot;&quot;&gt;&gt;
-
+    &lt;&lt;textbox &quot;$vahvuudet&quot; &quot;&quot; 6 40&gt;&gt;
   &lt;/div&gt;
 
   &lt;div class=&quot;lomake-ryhma&quot;&gt;
-    &lt;label class=&quot;lomake-label&quot;&gt;6. Ammatin hyvät puolet&lt;/label&gt;
+    &lt;label class=&quot;lomake-label&quot;&gt;6. Mikä tässä työssä voisi olla sinulle kivaa?&lt;/label&gt;
     &lt;p class=&quot;lomake-ohje&quot;&gt;
-      Mitkä ovat ammatin parhaat puolet?
+      Mieti, mitkä asiat voisivat innostaa sinua tässä ammatissa.
     &lt;/p&gt;
-   &lt;&lt;textbox &quot;$hyvatPuolet&quot; &quot;&quot;&gt;&gt;
-
+    &lt;&lt;textbox &quot;$hyvatPuolet&quot; &quot;&quot;6 40&gt;&gt;
   &lt;/div&gt;
 
   &lt;div class=&quot;lomake-ryhma&quot;&gt;
-    &lt;label class=&quot;lomake-label&quot;&gt;7. Ammatin haasteet&lt;/label&gt;
+    &lt;label class=&quot;lomake-label&quot;&gt;7. Mitkä asiat voisivat olla vaikeita tai raskaita?&lt;/label&gt;
     &lt;p class=&quot;lomake-ohje&quot;&gt;
-      Mitkä asiat voivat olla vaativia tai kuormittavia tässä ammatissa?
+      Esim. kiire, aikaiset aamut, fyysinen työ, kuumuus, tarkkuus.
     &lt;/p&gt;
-     &lt;&lt;textbox &quot;$haasteet&quot; &quot;&quot;&gt;&gt;
-
+    &lt;&lt;textbox &quot;$haasteet&quot; &quot;&quot; 6 40&gt;&gt;
   &lt;/div&gt;
 
   &lt;div class=&quot;lomake-ryhma&quot;&gt;
-    &lt;label class=&quot;lomake-label&quot;&gt;8. Palkkaus&lt;/label&gt;
+    &lt;label class=&quot;lomake-label&quot;&gt;8. Palkka ja työllistyminen&lt;/label&gt;
     &lt;p class=&quot;lomake-ohje&quot;&gt;
-      Selvitä mahdollisuuksien mukaan ammatin palkkatasoa tai kirjoita
-      lyhyt arvio palkkauksesta.
+      Selvitä tai arvioi: millainen palkka tässä työssä voi olla ja
+      millaiset mahdollisuudet on saada töitä tulevaisuudessa?
     &lt;/p&gt;
-   &lt;&lt;textbox &quot;$palkkaus&quot; &quot;&quot;&gt;&gt;
-
+    &lt;&lt;textbox &quot;$palkkaus&quot; &quot;&quot; 2 40&gt;&gt;
   &lt;/div&gt;
 
   &lt;div class=&quot;lomake-ryhma&quot;&gt;
-    &lt;label class=&quot;lomake-label&quot;&gt;9. Oma yhteenvetosi&lt;/label&gt;
+    &lt;label class=&quot;lomake-label&quot;&gt;9. Oma pohdintasi tulevaisuudesta&lt;/label&gt;
     &lt;p class=&quot;lomake-ohje&quot;&gt;
-      Miksi tämä ammatti voisi sopia sinulle – tai miksi ei?
+      Voisitko kuvitella itsesi tähän ammattiin?
+      Mitä sinun pitäisi vielä oppia tai harjoitella?
     &lt;/p&gt;
-     &lt;&lt;textbox &quot;$yhteenvetoOmaNakyma&quot; &quot;&quot;&gt;&gt;
-
+    &lt;&lt;textbox &quot;$yhteenvetoOmaNakyma&quot;  &quot;&quot; 8 40&gt;&gt;
   &lt;/div&gt;
 
   &lt;div class=&quot;intro-nappi&quot; style=&quot;margin-top:1.5rem;&quot;&gt;
     [[Näytä yhteenveto vastauksista-&gt;Ammattitutkimus: yhteenveto]]
   &lt;/div&gt;
 &lt;/div&gt;
-</tw-passagedata><tw-passagedata pid="10" name="Ammattitesti: alku" tags="" position="450,350" size="100,100">&lt;div class=&quot;quiz-page&quot;&gt;
-  &lt;h1&gt;Ammattitesti&lt;/h1&gt;
-  &lt;hr&gt;
+</tw-passagedata><tw-passagedata pid="6" name="Ammattitesti: alku" tags="" position="400,325" size="100,100">
+&lt;h1&gt;Elintarvikeala – sopiiko se minulle?&lt;/h1&gt;
 
-  &lt;p&gt;
-    Tässä testissä vastaat kysymyksiin, jotka liittyvät [alaan] ja siellä
-    tarvittaviin taitoihin. Jokaisesta oikeasta vastauksesta saat pisteen.
-  &lt;/p&gt;
+&lt;p&gt;
+Tässä testissä vastaat kysymyksiin, jotka liittyvät elintarvikealaan ja siellä tarvittaviin taitoihin. Jokaisesta oikeasta vastauksesta saat pisteen. Testin lopuksi näet yhteenvedon siitä, kuinka hyvin kiinnostuksesi ja vahvuutesi voivat sopia tälle alalle. Tässä ei ole oikeita tai vääriä vastauksia. Kysymykset auttavat sinua pohtimaan, voisiko elintarvikeala sopia sinulle.
+&lt;/p&gt;
 
-  &lt;p&gt;
-    Testin lopuksi näet yhteenvedon siitä, kuinka hyvin kiinnostuksesi
-    ja vahvuutesi voivat sopia tälle alalle.
-  &lt;/p&gt;
+&lt;div class=&quot;intro-nappi&quot;&gt;
+&lt;&lt;link &quot;Testiin!&quot;&gt;&gt;
+  &lt;&lt;goto &quot;Kysymys 1&quot;&gt;&gt;
+&lt;&lt;/link&gt;&gt;
 
-  &lt;p&gt;
-    Nykyiset pisteesi: &lt;span class=&quot;score&quot;&gt;&lt;&lt;print $pisteet&gt;&gt;&lt;/span&gt;
-  &lt;/p&gt;
 
-  &lt;div class=&quot;intro-nappi&quot;&gt;
-    [[Aloita testin ensimmäinen kysymys-&gt;Kysymys1]]
-  &lt;/div&gt;
 &lt;/div&gt;
-</tw-passagedata><tw-passagedata pid="11" name="Oikein 1" tags="" position="350,575" size="100,100"></tw-passagedata><tw-passagedata pid="12" name="Väärin 1" tags="" position="500,575" size="100,100"></tw-passagedata><tw-passagedata pid="13" name="Oppilaitokset" tags="" position="875,250" size="100,100">&lt;div class=&quot;quiz-page&quot;&gt;
-  &lt;h1&gt;[Alan] koulutusta tarjoavia oppilaitoksia&lt;/h1&gt;
-  &lt;hr&gt;
-
-  &lt;p&gt;
-    Alla on esimerkkejä oppilaitoksista, joissa voi opiskella [alaa]
-    toisen asteen tai korkeakouluopintoina. Voit hakea lisätietoja
-    oppilaitosten omilta sivuilta.
-  &lt;/p&gt;
-
-  &lt;h2&gt;Toisen asteen oppilaitoksia&lt;/h2&gt;
-
-  &lt;div class=&quot;school-grid&quot;&gt;
-    &lt;div class=&quot;school-card&quot;&gt;
-      &lt;h3&gt;Oppilaitos A&lt;/h3&gt;
-      &lt;p&gt;
-        Lyhyt kuvaus oppilaitoksesta ja mitä [alan] koulutuksia siellä voi opiskella.
-      &lt;/p&gt;
-      &lt;ul&gt;
-        &lt;li&gt;[Tutkinto 1]&lt;/li&gt;
-        &lt;li&gt;[Tutkinto 2]&lt;/li&gt;
-      &lt;/ul&gt;
-      &lt;a class=&quot;external-link&quot;
-         href=&quot;https://www.esimerkkioppilaitos.fi&quot;
-         target=&quot;_blank&quot;&gt;
-        Avaa oppilaitoksen sivut
-      &lt;/a&gt;
-    &lt;/div&gt;
-
-    &lt;div class=&quot;school-card&quot;&gt;
-      &lt;h3&gt;Oppilaitos B&lt;/h3&gt;
-      &lt;p&gt;[Lyhyt kuvaus]&lt;/p&gt;
-      &lt;ul&gt;
-        &lt;li&gt;[Tutkinto 1]&lt;/li&gt;
-        &lt;li&gt;[Tutkinto 2]&lt;/li&gt;
-      &lt;/ul&gt;
-      &lt;a class=&quot;external-link&quot;
-         href=&quot;https://www.toinenoppilaitos.fi&quot;
-         target=&quot;_blank&quot;&gt;
-        Avaa oppilaitoksen sivut
-      &lt;/a&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-
-  &lt;h2&gt;Korkeakoulut&lt;/h2&gt;
-
-  &lt;div class=&quot;school-grid&quot;&gt;
-    &lt;div class=&quot;school-card&quot;&gt;
-      &lt;h3&gt;Ammattikorkeakoulu X&lt;/h3&gt;
-      &lt;p&gt;
-        [Esimerkki jatko-opinnoista tällä alalla.]
-      &lt;/p&gt;
-      &lt;a class=&quot;external-link&quot;
-         href=&quot;https://esimerkki-amk.fi&quot;
-         target=&quot;_blank&quot;&gt;
-        Avaa AMK:n sivut
-      &lt;/a&gt;
-    &lt;/div&gt;
-
-    &lt;div class=&quot;school-card&quot;&gt;
-      &lt;h3&gt;Yliopisto Y&lt;/h3&gt;
-      &lt;p&gt;[Lyhyt kuvaus yliopistotason opinnoista]&lt;/p&gt;
-      &lt;a class=&quot;external-link&quot;
-         href=&quot;https://esimerkki-yliopisto.fi&quot;
-         target=&quot;_blank&quot;&gt;
-        Avaa yliopiston sivut
-      &lt;/a&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-
-  &lt;div class=&quot;intro-nappi&quot;&gt;
-    [[Siirry ammattitutkimustehtävään-&gt;Ammattitutkimus: lomake]]
-    [[Palaa alkuun-&gt;Start]]
-  &lt;/div&gt;
-&lt;/div&gt;
-</tw-passagedata><tw-passagedata pid="14" name="Ammattitutkimus: yhteenveto" tags="" position="825,500" size="100,100">:: Ammattitutkimus: yhteenveto
+</tw-passagedata><tw-passagedata pid="7" name="Ammattitutkimus: yhteenveto" tags="" position="825,500" size="100,100">
 &lt;div class=&quot;quiz-page&quot;&gt;
   &lt;h1&gt;Ammattitutkimuksen yhteenveto&lt;/h1&gt;
   &lt;hr&gt;
 
   &lt;p&gt;
-    Alla on yhteenveto vastauksistasi. Voit kopioida tekstin omaan
-    Google Docs -dokumenttiin tai ladata vastaukset tekstitiedostona.
+ Alla on yhteenveto vastauksistasi. Voit ladata vastaukset tekstitiedostona ja kopioida tekstin omaan Google Docsiin tai Google Slidesiin.
   &lt;/p&gt;
 
   &lt;h2&gt;Valittu ammatti&lt;/h2&gt;
@@ -921,18 +892,17 @@ window.confirmExitStory = function () {
   &lt;h2&gt;Oma yhteenvetosi&lt;/h2&gt;
   &lt;p&gt;&lt;&lt;print $yhteenvetoOmaNakyma&gt;&gt;&lt;/p&gt;
 
-  &lt;div class=&quot;intro-nappi&quot;&gt;
-    &lt;button class=&quot;exit-btn&quot; onclick=&quot;downloadAmmattitutkimus()&quot;&gt;
-      Lataa vastaukset tiedostona
-    &lt;/button&gt;
-  &lt;/div&gt;
-
-  &lt;div class=&quot;intro-nappi&quot;&gt;
-    [[Palaa muokkaamaan vastauksia-&gt;Ammattitutkimus: lomake]]
-    [[Palaa alkuun-&gt;Start]]
-  &lt;/div&gt;
+  &lt;div class=&quot;intro-nappi&quot;&gt;&lt;div class=&quot;intro-nappi&quot;&gt;
+  &lt;a href=&quot;javascript:void(0)&quot;
+     class=&quot;macro-link&quot;
+     onclick=&quot;downloadAmmattitutkimus()&quot;&gt;
+    Lataa vastaukset tiedostona
+  &lt;/a&gt;
 &lt;/div&gt;
-</tw-passagedata><tw-passagedata pid="15" name="StoryHeader" tags="" position="950,100" size="100,100">&lt;div class=&quot;navbar-fixed&quot;&gt;
+   
+   &lt;/div&gt;
+&lt;/div&gt;
+</tw-passagedata><tw-passagedata pid="8" name="StoryHeader" tags="" position="875,0" size="100,100">&lt;div class=&quot;navbar-fixed&quot;&gt;
   &lt;&lt;button &quot;← Taaksepäin&quot;&gt;&gt;
     &lt;&lt;run Engine.backward()&gt;&gt;
   &lt;&lt;/button&gt;&gt;
@@ -941,15 +911,482 @@ window.confirmExitStory = function () {
     &lt;&lt;run Engine.forward()&gt;&gt;
   &lt;&lt;/button&gt;&gt;
 &lt;/div&gt;
-</tw-passagedata><tw-passagedata pid="16" name="Kansi" tags="" position="475,75" size="100,100">&lt;div class=&quot;cover-page&quot; role=&quot;button&quot; tabindex=&quot;0&quot;&gt;
-  &lt;h1 class=&quot;cover-title&quot;&gt;Elintarvikeala&lt;/h1&gt;
-&lt;/div&gt;
+</tw-passagedata><tw-passagedata pid="9" name="Kansi" tags="" position="475,75" size="100,100">&lt;&lt;script&gt;&gt;
+$(&#39;body&#39;).removeClass(&#39;hide-navbar&#39;);
+&lt;&lt;/script&gt;&gt;
 
 &lt;&lt;script&gt;&gt;
-$(document).one(&quot;click keypress&quot;, function () {
-  Engine.play(&quot;Start&quot;);
-});
+$(&#39;body&#39;).addClass(&#39;hide-navbar&#39;);
 &lt;&lt;/script&gt;&gt;
+
+&lt;a class=&quot;cover-link&quot; href=&quot;javascript:void(0)&quot; onclick=&quot;SugarCube.Engine.play(&#39;start&#39;)&quot;&gt;
+  &lt;div class=&quot;cover-inner&quot;&gt;
+    &lt;div class=&quot;cover-title&quot;&gt;
+      ELINTARVIKEALA
+    &lt;/div&gt;
+
+      &lt;/div&gt;
+&lt;/a&gt;
+</tw-passagedata><tw-passagedata pid="10" name="Kysymys 2" tags="" position="400,575" size="100,100">&lt;h2&gt;Kysymys 2 / 10&lt;/h2&gt;
+
+&lt;p&gt;Onko minulle ok tehdä työtä, jossa seistään ja liikutaan paljon?&lt;/p&gt;
+
+
+&lt;div class=&quot;answer-group&quot;&gt;
+
+&lt;&lt;link &quot;Kyllä&quot;&gt;&gt;
+  &lt;&lt;set $score += 2&gt;&gt;
+  &lt;&lt;goto &quot;Kysymys 3&quot;&gt;&gt;
+&lt;&lt;/link&gt;&gt;
+
+&lt;&lt;link &quot;Joskus / ehkä&quot;&gt;&gt;
+  &lt;&lt;set $score += 1&gt;&gt;
+  &lt;&lt;goto &quot;Kysymys 3&quot;&gt;&gt;
+&lt;&lt;/link&gt;&gt;
+
+&lt;&lt;link &quot;Ei&quot;&gt;&gt;
+  &lt;&lt;goto &quot;Kysymys 3&quot;&gt;&gt;
+&lt;&lt;/link&gt;&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="11" name="Kysymys 3" tags="" position="400,700" size="100,100">&lt;h2&gt;Kysymys 3 / 10&lt;/h2&gt;
+
+&lt;p&gt;Pystynkö noudattamaan ohjeita ja sääntöjä tarkasti?&lt;/p&gt;
+
+&lt;div class=&quot;answer-group&quot;&gt;
+
+&lt;&lt;link &quot;Kyllä&quot;&gt;&gt;
+  &lt;&lt;set $score += 2&gt;&gt;
+  &lt;&lt;goto &quot;Kysymys 4&quot;&gt;&gt;
+&lt;&lt;/link&gt;&gt;
+
+&lt;&lt;link &quot;Joskus / ehkä&quot;&gt;&gt;
+  &lt;&lt;set $score += 1&gt;&gt;
+  &lt;&lt;goto &quot;Kysymys 4&quot;&gt;&gt;
+&lt;&lt;/link&gt;&gt;
+
+&lt;&lt;link &quot;Ei&quot;&gt;&gt;
+  &lt;&lt;goto &quot;Kysymys 4&quot;&gt;&gt;
+&lt;&lt;/link&gt;&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="12" name="Kysymys 4" tags="" position="400,825" size="100,100">&lt;h2&gt;Kysymys 4 / 10&lt;/h2&gt;
+
+&lt;p&gt;Kiinnostavatko minua maut, tuoksut ja ruoan ulkonäkö?&lt;/p&gt;
+
+
+&lt;div class=&quot;answer-group&quot;&gt;
+
+&lt;&lt;link &quot;Kyllä&quot;&gt;&gt;
+  &lt;&lt;set $score += 2&gt;&gt;
+  &lt;&lt;goto &quot;Kysymys 5&quot;&gt;&gt;
+&lt;&lt;/link&gt;&gt;
+
+&lt;&lt;link &quot;Joskus / ehkä&quot;&gt;&gt;
+  &lt;&lt;set $score += 1&gt;&gt;
+  &lt;&lt;goto &quot;Kysymys 5&quot;&gt;&gt;
+&lt;&lt;/link&gt;&gt;
+
+&lt;&lt;link &quot;Ei&quot;&gt;&gt;
+  &lt;&lt;goto &quot;Kysymys 5&quot;&gt;&gt;
+&lt;&lt;/link&gt;&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="13" name="Kysymys 5" tags="" position="400,950" size="100,100">&lt;h2&gt;Kysymys 5 / 10&lt;/h2&gt;
+
+&lt;p&gt;Pystynkö pitämään huolta puhtaudesta ja hygieniasta?&lt;/p&gt;
+
+
+&lt;div class=&quot;answer-group&quot;&gt;
+
+&lt;&lt;link &quot;Kyllä&quot;&gt;&gt;
+  &lt;&lt;set $score += 2&gt;&gt;
+  &lt;&lt;goto &quot;Kysymys 6&quot;&gt;&gt;
+&lt;&lt;/link&gt;&gt;
+
+&lt;&lt;link &quot;Joskus / ehkä&quot;&gt;&gt;
+  &lt;&lt;set $score += 1&gt;&gt;
+  &lt;&lt;goto &quot;Kysymys 6&quot;&gt;&gt;
+&lt;&lt;/link&gt;&gt;
+
+&lt;&lt;link &quot;Ei&quot;&gt;&gt;
+  &lt;&lt;goto &quot;Kysymys 6&quot;&gt;&gt;
+&lt;&lt;/link&gt;&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="14" name="Kysymys 6" tags="" position="400,1075" size="100,100">&lt;h2&gt;Kysymys 6 / 10&lt;/h2&gt;
+
+&lt;p&gt;Pystynkö toimimaan, vaikka olisi kiire?&lt;/p&gt;
+
+&lt;div class=&quot;answer-group&quot;&gt;
+
+&lt;&lt;link &quot;Kyllä&quot;&gt;&gt;
+  &lt;&lt;set $score += 2&gt;&gt;
+  &lt;&lt;goto &quot;Kysymys 7&quot;&gt;&gt;
+&lt;&lt;/link&gt;&gt;
+
+&lt;&lt;link &quot;Joskus / ehkä&quot;&gt;&gt;
+  &lt;&lt;set $score += 1&gt;&gt;
+  &lt;&lt;goto &quot;Kysymys 7&quot;&gt;&gt;
+&lt;&lt;/link&gt;&gt;
+
+&lt;&lt;link &quot;Ei&quot;&gt;&gt;
+  &lt;&lt;goto &quot;Kysymys 7&quot;&gt;&gt;
+&lt;&lt;/link&gt;&gt;
+&lt;/div&gt;
+</tw-passagedata><tw-passagedata pid="15" name="Kysymys 7" tags="" position="400,1200" size="100,100">&lt;h2&gt;Kysymys 7 / 10&lt;/h2&gt;
+
+&lt;p&gt;Sopiiko minulle työ, jossa tehdään asioita yhdessä muiden kanssa?&lt;/p&gt;
+
+
+&lt;div class=&quot;answer-group&quot;&gt;
+
+&lt;&lt;link &quot;Kyllä&quot;&gt;&gt;
+  &lt;&lt;set $score += 2&gt;&gt;
+  &lt;&lt;goto &quot;Kysymys 8&quot;&gt;&gt;
+&lt;&lt;/link&gt;&gt;
+
+&lt;&lt;link &quot;Joskus / ehkä&quot;&gt;&gt;
+  &lt;&lt;set $score += 1&gt;&gt;
+  &lt;&lt;goto &quot;Kysymys 8&quot;&gt;&gt;
+&lt;&lt;/link&gt;&gt;
+
+&lt;&lt;link &quot;Ei&quot;&gt;&gt;
+  &lt;&lt;goto &quot;Kysymys 8&quot;&gt;&gt;
+&lt;&lt;/link&gt;&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="16" name="Kysymys 8" tags="" position="400,1325" size="100,100">&lt;h2&gt;Kysymys 8 / 10&lt;/h2&gt;
+
+&lt;p&gt;Sopiiko minulle se, että työajat voivat vaihdella?&lt;/p&gt;
+
+&lt;div class=&quot;answer-group&quot;&gt;
+
+&lt;&lt;link &quot;Kyllä&quot;&gt;&gt;
+  &lt;&lt;set $score += 2&gt;&gt;
+  &lt;&lt;goto &quot;Kysymys 9&quot;&gt;&gt;
+&lt;&lt;/link&gt;&gt;
+
+&lt;&lt;link &quot;Joskus / ehkä&quot;&gt;&gt;
+  &lt;&lt;set $score += 1&gt;&gt;
+  &lt;&lt;goto &quot;Kysymys 9&quot;&gt;&gt;
+&lt;&lt;/link&gt;&gt;
+
+&lt;&lt;link &quot;Ei&quot;&gt;&gt;
+  &lt;&lt;goto &quot;Kysymys 9&quot;&gt;&gt;
+&lt;&lt;/link&gt;&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="17" name="Kysymys 9" tags="" position="400,1450" size="100,100">&lt;h2&gt;Kysymys 9 / 10&lt;/h2&gt;
+
+&lt;p&gt;Haluanko tehdä työtä, josta on hyötyä muille ihmisille?&lt;/p&gt;
+
+&lt;div class=&quot;answer-group&quot;&gt;
+
+&lt;&lt;link &quot;Kyllä&quot;&gt;&gt;
+  &lt;&lt;set $score += 2&gt;&gt;
+  &lt;&lt;goto &quot;Kysymys 10&quot;&gt;&gt;
+&lt;&lt;/link&gt;&gt;
+
+&lt;&lt;link &quot;Joskus / ehkä&quot;&gt;&gt;
+  &lt;&lt;set $score += 1&gt;&gt;
+  &lt;&lt;goto &quot;Kysymys 10&quot;&gt;&gt;
+&lt;&lt;/link&gt;&gt;
+
+&lt;&lt;link &quot;Ei&quot;&gt;&gt;
+  &lt;&lt;goto &quot;Kysymys 10&quot;&gt;&gt;
+&lt;&lt;/link&gt;&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="18" name="Kysymys 10" tags="" position="400,1575" size="100,100">&lt;h2&gt;Kysymys 10 / 10&lt;/h2&gt;
+
+&lt;p&gt;Haluanko oppia uusia taitoja ja tehdä asioita käsillä?&lt;/p&gt;
+&lt;div class=&quot;answer-group&quot;&gt;
+
+&lt;&lt;link &quot;Kyllä&quot;&gt;&gt;
+  &lt;&lt;set $score += 2&gt;&gt;
+  &lt;&lt;goto &quot;Tulos&quot;&gt;&gt;
+&lt;&lt;/link&gt;&gt;
+
+&lt;&lt;link &quot;Joskus / ehkä&quot;&gt;&gt;
+  &lt;&lt;set $score += 1&gt;&gt;
+  &lt;&lt;goto &quot;Tulos&quot;&gt;&gt;
+&lt;&lt;/link&gt;&gt;
+
+&lt;&lt;link &quot;Ei&quot;&gt;&gt;
+  &lt;&lt;goto &quot;Tulos&quot;&gt;&gt;
+&lt;&lt;/link&gt;&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="19" name="Tulos" tags="" position="400,1700" size="100,100">&lt;h1&gt;Tuloksesi&lt;/h1&gt;
+
+&lt;p&gt;Sait &lt;strong&gt;$score / 20 pistettä&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;&lt;if $score &gt;= 15&gt;&gt;
+&lt;p&gt;
+Elintarvikeala voi sopia sinulle hyvin. Pidät tekemisestä ja käytännön työstä.
+&lt;/p&gt;
+
+&lt;&lt;elseif $score &gt;= 9&gt;&gt;
+&lt;p&gt;
+Elintarvikeala voi sopia sinulle osittain. Alaa kannattaa kokeilla ja tutkia lisää.
+&lt;/p&gt;
+
+&lt;&lt;else&gt;&gt;
+&lt;p&gt;
+Elintarvikeala ei ehkä ole sinulle nyt paras vaihtoehto. Se ei ole huono asia – muitakin hyviä aloja on.
+&lt;/p&gt;
+&lt;&lt;/if&gt;&gt;
+
+&lt;div class=&quot;answer-group&quot;&gt;
+
+&lt;&lt;link &quot;Tutustu elinatarvikealan koulutuksiin&quot;&gt;&gt;
+  &lt;&lt;set $score = 0&gt;&gt;
+  &lt;&lt;goto &quot;Oppilaitokset&quot;&gt;&gt;
+&lt;&lt;/link&gt;&gt;
+
+&lt;&lt;link &quot;Poistu&quot;&gt;&gt;
+  &lt;&lt;addclass $event.target &quot;btn--danger&quot;&gt;&gt;
+&lt;&lt;/link&gt;&gt;
+
+&lt;/div&gt;
+</tw-passagedata><tw-passagedata pid="20" name="Valitse alue" tags="" position="925,125" size="100,100">&lt;div class=&quot;quiz-page&quot;&gt;
+  &lt;h1&gt;Missä haluat opiskella?&lt;/h1&gt;
+  &lt;p&gt;
+    Valitse alue, josta haluat katsoa elintarvikealan koulutuksia.
+  &lt;/p&gt;
+
+  &lt;div class=&quot;answer-group&quot;&gt;
+    [[Uusimaa-&gt;Koulutukset: Elintarvikeala (Uusimaa)]]
+    [[Muu Suomi-&gt;Koulutukset: Elintarvikeala (Muu Suomi)]]
+  &lt;/div&gt;
+
+  &lt;div class=&quot;intro-nappi&quot;&gt;
+    [[Palaa alkuun-&gt;Start]]
+  &lt;/div&gt;
+&lt;/div&gt;
+</tw-passagedata><tw-passagedata pid="21" name="Koulutukset: Elintarvikeala (Uusimaa)" tags="" position="825,250" size="100,100">&lt;div class=&quot;quiz-page&quot;&gt;
+  &lt;h1&gt;Elintarvikealan koulutusta tarjoavia oppilaitoksia Uudellamaalla&lt;/h1&gt;
+  &lt;hr&gt;
+
+  &lt;p&gt;
+    Alla on esimerkkejä oppilaitoksista, joissa voi opiskella elintarvikealaa
+    toisen asteen tai korkeakouluopintoina. Voit hakea lisätietoja
+    oppilaitosten omilta sivuilta.
+  &lt;/p&gt;
+
+  &lt;h2&gt;Toisen asteen oppilaitoksia&lt;/h2&gt;
+
+  &lt;div class=&quot;school-grid&quot;&gt;
+
+    &lt;div class=&quot;school-card&quot;&gt;
+      &lt;h3&gt;Stadin ammattiopisto (Helsinki)&lt;/h3&gt;
+      &lt;p&gt;
+        Stadin ammattiopistossa voit opiskella elintarvikealan perustutkintoa.
+        Opinnoissa opitaan esimerkiksi leipomista, ruoan valmistusta ja
+        elintarvikkeiden turvallista käsittelyä.
+      &lt;/p&gt;
+      &lt;ul&gt;
+        &lt;li&gt;Elintarvikealan perustutkinto&lt;/li&gt;
+        &lt;li&gt;Leipuri-kondiittori&lt;/li&gt;
+      &lt;/ul&gt;
+      &lt;a class=&quot;external-link&quot;
+         href=&quot;https://stadinao.hel.fi/hae-opiskelemaan/ammatilliset-perustutkinnot/elintarvikealan-perustutkinto/&quot;
+         target=&quot;_blank&quot;&gt;
+        Avaa oppilaitoksen sivut
+      &lt;/a&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;school-card&quot;&gt;
+      &lt;h3&gt;Keuda (Järvenpää)&lt;/h3&gt;
+      &lt;p&gt;
+        Keudassa voit opiskella elintarvikealaa ja oppia leipomista sekä
+        elintarvikkeiden valmistusta ja pakkaamista.
+      &lt;/p&gt;
+      &lt;ul&gt;
+        &lt;li&gt;Elintarvikealan perustutkinto&lt;/li&gt;
+        &lt;li&gt;Leipuri-kondiittori&lt;/li&gt;
+      &lt;/ul&gt;
+      &lt;a class=&quot;external-link&quot;
+         href=&quot;https://www.keuda.fi/koulutus/elintarvikealan-perustutkinto/&quot;
+         target=&quot;_blank&quot;&gt;
+        Avaa oppilaitoksen sivut
+      &lt;/a&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;school-card&quot;&gt;
+      &lt;h3&gt;Varia (Vantaa)&lt;/h3&gt;
+      &lt;p&gt;
+        Variassa opitaan elintarvikkeiden valmistusta ja leipomista.
+        Opinnoissa harjoitellaan paljon käytännön töitä.
+      &lt;/p&gt;
+      &lt;ul&gt;
+        &lt;li&gt;Elintarvikealan perustutkinto&lt;/li&gt;
+        &lt;li&gt;Leipuri-kondiittori&lt;/li&gt;
+      &lt;/ul&gt;
+      &lt;a class=&quot;external-link&quot;
+         href=&quot;https://www.varia.fi/koulutus/elintarvikealan-perustutkinto&quot;
+         target=&quot;_blank&quot;&gt;
+        Avaa oppilaitoksen sivut
+      &lt;/a&gt;
+    &lt;/div&gt;
+
+  &lt;/div&gt;
+
+  &lt;h2&gt;Korkeakoulut&lt;/h2&gt;
+
+  &lt;div class=&quot;school-grid&quot;&gt;
+
+    &lt;div class=&quot;school-card&quot;&gt;
+      &lt;h3&gt;Metropolia Ammattikorkeakoulu&lt;/h3&gt;
+      &lt;p&gt;
+        Metropoliassa voit opiskella esimerkiksi bio- ja elintarviketekniikkaa.
+        Opinnoissa perehdytään elintarvikkeiden valmistukseen, laatuun ja
+        turvallisuuteen.
+      &lt;/p&gt;
+      &lt;a class=&quot;external-link&quot;
+         href=&quot;https://www.metropolia.fi/fi/opiskelu-metropoliassa/amk-tutkinnot&quot;
+         target=&quot;_blank&quot;&gt;
+        Avaa AMK:n sivut
+      &lt;/a&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;school-card&quot;&gt;
+      &lt;h3&gt;Helsingin yliopisto&lt;/h3&gt;
+      &lt;p&gt;
+        Helsingin yliopistossa voi opiskella elintarviketieteitä ja ravitsemustiedettä.
+        Opinnot sopivat sinulle, jos olet kiinnostunut ruoasta ja terveydestä.
+      &lt;/p&gt;
+      &lt;a class=&quot;external-link&quot;
+         href=&quot;https://www.helsinki.fi/fi/koulutusohjelmat&quot;
+         target=&quot;_blank&quot;&gt;
+        Avaa yliopiston sivut
+      &lt;/a&gt;
+    &lt;/div&gt;
+
+  &lt;/div&gt;
+
+  &lt;div class=&quot;school-grid&quot;&gt;
+    &lt;div class=&quot;school-card&quot;&gt;
+      &lt;h3&gt;Lisätietoa koulutuksista&lt;/h3&gt;
+      &lt;p&gt;
+        Voit tutkia lisää elintarvikealan koulutuksia näiltä sivuilta:
+      &lt;/p&gt;
+      &lt;a class=&quot;external-link&quot;
+         href=&quot;https://maistuvaammatti.fi/koulutus-alalle/&quot;
+         target=&quot;_blank&quot;&gt;
+        Maistuva ammatti – koulutukset
+      &lt;/a&gt;
+      &lt;br&gt;&lt;br&gt;
+      &lt;a class=&quot;external-link&quot;
+         href=&quot;https://opintopolku.fi/&quot;
+         target=&quot;_blank&quot;&gt;
+        Opintopolku.fi – kaikki koulutukset
+      &lt;/a&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&quot;intro-nappi&quot;&gt;
+    [[Siirry ammattitutkimustehtävään-&gt;Ammattitutkimus: lomake]]
+    
+  &lt;/div&gt;
+&lt;/div&gt;
+</tw-passagedata><tw-passagedata pid="22" name="Koulutukset: Elintarvikeala (Muu Suomi)" tags="" position="975,250" size="100,100">&lt;div class=&quot;quiz-page&quot;&gt;
+  &lt;h1&gt;Elintarvikealan koulutuksia muualla Suomessa&lt;/h1&gt;
+  &lt;hr&gt;
+
+  &lt;p&gt;
+    Alla on esimerkkejä elintarvikealan koulutuksista eri puolilta Suomea.
+    Lisätietoja löydät oppilaitosten omilta sivuilta.
+  &lt;/p&gt;
+
+  &lt;h2&gt;Toisen asteen oppilaitoksia&lt;/h2&gt;
+
+  &lt;div class=&quot;school-grid&quot;&gt;
+
+    &lt;div class=&quot;school-card&quot;&gt;
+      &lt;h3&gt;Tampereen seudun ammattiopisto Tredu&lt;/h3&gt;
+      &lt;p&gt;
+        Tredussa voi opiskella elintarvikealan perustutkintoa sekä
+        leipuri-kondiittorin opintoja.
+      &lt;/p&gt;
+      &lt;ul&gt;
+        &lt;li&gt;Elintarvikealan perustutkinto&lt;/li&gt;
+        &lt;li&gt;Leipuri-kondiittori&lt;/li&gt;
+      &lt;/ul&gt;
+      &lt;a class=&quot;external-link&quot; href=&quot;https://www.tredu.fi&quot; target=&quot;_blank&quot;&gt;
+        Avaa oppilaitoksen sivut
+      &lt;/a&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;school-card&quot;&gt;
+      &lt;h3&gt;Turun ammatti-instituutti&lt;/h3&gt;
+      &lt;p&gt;
+        Turussa voit opiskella leipuri-kondiittorin sekä elintarvikkeiden
+        valmistuksen opintoja.
+      &lt;/p&gt;
+      &lt;ul&gt;
+        &lt;li&gt;Elintarvikealan perustutkinto&lt;/li&gt;
+        &lt;li&gt;Leipuri-kondiittori&lt;/li&gt;
+      &lt;/ul&gt;
+      &lt;a class=&quot;external-link&quot; href=&quot;https://www.turku.fi/ammatti-instituutti&quot; target=&quot;_blank&quot;&gt;
+        Avaa oppilaitoksen sivut
+      &lt;/a&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;school-card&quot;&gt;
+      &lt;h3&gt;Oulun seudun ammattiopisto (OSAO)&lt;/h3&gt;
+      &lt;p&gt;
+        OSAOssa voi opiskella elintarvikealan perustutkintoa ja
+        elintarvikkeiden valmistusta.
+      &lt;/p&gt;
+      &lt;ul&gt;
+        &lt;li&gt;Elintarvikealan perustutkinto&lt;/li&gt;
+      &lt;/ul&gt;
+      &lt;a class=&quot;external-link&quot; href=&quot;https://www.osao.fi&quot; target=&quot;_blank&quot;&gt;
+        Avaa oppilaitoksen sivut
+      &lt;/a&gt;
+    &lt;/div&gt;
+
+  &lt;/div&gt;
+
+  &lt;h2&gt;Korkeakoulut&lt;/h2&gt;
+
+  &lt;div class=&quot;school-grid&quot;&gt;
+
+    &lt;div class=&quot;school-card&quot;&gt;
+      &lt;h3&gt;Seinäjoen ammattikorkeakoulu (SeAMK)&lt;/h3&gt;
+      &lt;p&gt;
+        SeAMKissa voi opiskella elintarvikealan ja bio- ja elintarviketekniikan
+        AMK-opintoja.
+      &lt;/p&gt;
+      &lt;a class=&quot;external-link&quot; href=&quot;https://www.seamk.fi&quot; target=&quot;_blank&quot;&gt;
+        Avaa AMK:n sivut
+      &lt;/a&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;school-card&quot;&gt;
+      &lt;h3&gt;Itä-Suomen yliopisto&lt;/h3&gt;
+      &lt;p&gt;
+        Yliopistossa voi opiskella ravitsemustiedettä ja elintarviketieteitä.
+      &lt;/p&gt;
+      &lt;a class=&quot;external-link&quot; href=&quot;https://www.uef.fi&quot; target=&quot;_blank&quot;&gt;
+        Avaa yliopiston sivut
+      &lt;/a&gt;
+    &lt;/div&gt;
+
+  &lt;/div&gt;
+
+  &lt;div class=&quot;school-grid&quot;&gt;
+    &lt;div class=&quot;school-card&quot;&gt;
+      &lt;h3&gt;Lisätietoa koulutuksista&lt;/h3&gt;
+      &lt;a class=&quot;external-link&quot;
+         href=&quot;https://maistuvaammatti.fi/koulutus-alalle/&quot;
+         target=&quot;_blank&quot;&gt;
+        Maistuva ammatti – koulutukset
+      &lt;/a&gt;
+      &lt;br&gt;&lt;br&gt;
+      &lt;a class=&quot;external-link&quot;
+         href=&quot;https://opintopolku.fi/&quot;
+         target=&quot;_blank&quot;&gt;
+        Opintopolku.fi – kaikki koulutukset
+      &lt;/a&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&quot;intro-nappi&quot;&gt;
+    [[Palaa aluevalintaan-&gt;Valitse alue]]
+   &#39;
+   &lt;div class=&quot;intro-nappi&quot;&gt;
+    [[Siirry ammattitutkimustehtävään-&gt;Ammattitutkimus: lomake]]
+    
+  &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
 </tw-passagedata></tw-storydata>
 	<script id="script-sugarcube" type="text/javascript">
 	/*! SugarCube JS */
