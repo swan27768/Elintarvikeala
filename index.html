@@ -104,7 +104,7 @@ var LZString=function(){var r=String.fromCharCode,o="ABCDEFGHIJKLMNOPQRSTUVWXYZa
 		<div id="init-lacking"><p>Browser lacks capabilities required to play.</p><p>Upgrade or switch to another browser.</p></div>
 		<div id="init-loading"><div>Loading&hellip;</div></div>
 	</div>
-	<tw-storydata name="Elintarvikeala" startnode="9" creator="Twine" creator-version="2.11.1" format="SugarCube" format-version="2.37.3" ifid="6d205d48-9be7-4a4e-8b3a-33ca2b301225" options="" tags="" zoom="1" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">/* ============================================================
+	<tw-storydata name="Elintarvikeala" startnode="7" creator="Twine" creator-version="2.11.1" format="SugarCube" format-version="2.37.3" ifid="6d205d48-9be7-4a4e-8b3a-33ca2b301225" options="" tags="" zoom="1" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">/* ============================================================
    0. MAISTUVA AMMATTI – TEEMAVÄRIT JA PERUSASPETTI
    ============================================================ */
 
@@ -660,7 +660,7 @@ window.confirmExitStory = function () {
     window.close();
   }
 };
-</script><tw-passagedata pid="1" name="StoryInit" tags="" position="725,50" size="100,100">&lt;&lt;set $score = 0&gt;&gt;
+</script><tw-passagedata pid="1" name="StoryInit" tags="" position="750,0" size="100,100">&lt;&lt;set $score = 0&gt;&gt;
 
 &lt;&lt;set $hideNavbar = true&gt;&gt;
 &lt;&lt;set $hideNavbar = false&gt;&gt;
@@ -705,7 +705,7 @@ window.confirmExitStory = function () {
 &lt;&lt;link &quot;Ei&quot;&gt;&gt;
   &lt;&lt;goto &quot;Kysymys 2&quot;&gt;&gt;
 &lt;&lt;/link&gt;&gt;
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="3" name="Loppusivu" tags="" position="850,625" size="100,100">&lt;div class=&quot;quiz-page&quot;&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="3" name="Loppusivu" tags="" position="850,850" size="100,100">&lt;div class=&quot;quiz-page&quot;&gt;
   &lt;h1&gt;Hienoa työtä!&lt;/h1&gt;
   &lt;hr&gt;
 
@@ -741,108 +741,18 @@ $(&#39;body&#39;).removeClass(&#39;hide-navbar&#39;);
   &lt;hr&gt;
 
   &lt;p&gt;
- Elintarvikeala on ala, jossa valmistetaan ruokaa ja juomia ihmisille. Alalla tehdään monenlaisia töitä: suunnitellaan uusia tuotteita, tuotetaan ruokaa tehtaissa, pakataan elintarvikkeita ja huolehditaan, että ruoka on turvallista ja hyvälaatuista. Elintarvikealan ammateissa on sekä käytännön työtä että luovaa tekemistä, ja työpaikkoja löytyy ympäri Suomea.
+Elintarvikeala on ala, jossa valmistetaan ruokaa ja juomia ihmisille. Alalla tehdään monenlaisia töitä: suunnitellaan uusia tuotteita, tuotetaan ruokaa tehtaissa, pakataan elintarvikkeita ja huolehditaan, että ruoka on turvallista ja hyvälaatuista. Elintarvikealan ammateissa on sekä käytännön työtä että luovaa tekemistä, ja työpaikkoja löytyy ympäri Suomea.
   &lt;/p&gt;
 
   &lt;div class=&quot;intro-nappi&quot;&gt;
     [[Sopiiko tämä ala sinulle - Testaa!-&gt;Ammattitesti: alku]]
   &lt;/div&gt;
-&lt;/div&gt;
-</tw-passagedata><tw-passagedata pid="5" name="Ammattitutkimus: lomake" tags="" position="825,400" size="100,100">&lt;div class=&quot;quiz-page&quot;&gt;
-  &lt;h1&gt;Ammattitutkimus – Elintarvikeala&lt;/h1&gt;
-  &lt;hr&gt;
-
-  &lt;p&gt;
- Valitse jokin elintarvikealan ammatti, joka sinua kiinnostaa. Tutki sitä luotettavista lähteistä (esim. Työmarkkinatori, Duunitori, oppilaitosten sivut). Vastaa kysymyksiin omin sanoin ja mahdollisimman konkreettisesti.
-  &lt;/p&gt;
-
-  &lt;p&gt;
-Lopuksi saat yhteenvedon vastauksistasi, jonka voit kopioida omaan Google Docs -dokumenttiisi tai ladata tekstitiedostona.
-  &lt;/p&gt;
-
-  &lt;div class=&quot;lomake-ryhma&quot;&gt;
-    &lt;label class=&quot;lomake-label&quot;&gt;1. Ammatin nimi&lt;/label&gt;
-    &lt;p class=&quot;lomake-ohje&quot;&gt;
-      Minkä elintarvikealan ammatin valitsit? (Esim. leipuri-kondiittori, elintarviketyöntekijä)
-    &lt;/p&gt;
-    &lt;&lt;textbox &quot;$ammattiNimi&quot; &quot;&quot; 2 40&gt;&gt;
-  &lt;/div&gt;
-
-  &lt;div class=&quot;lomake-ryhma&quot;&gt;
-    &lt;label class=&quot;lomake-label&quot;&gt;2. Koulutuspolku ammattiin&lt;/label&gt;
-    &lt;p class=&quot;lomake-ohje&quot;&gt;
-      Miten tähän ammattiin voi päästä? Kirjoita mahdollinen polku
-      peruskoulusta eteenpäin.
-      (Esim. peruskoulu → ammatillinen koulutus → työelämä → jatko-opinnot)
-    &lt;/p&gt;
-    &lt;&lt;textbox &quot;$KoulutusPolku&quot;  &quot;&quot; 4 40&gt;&gt;
-  &lt;/div&gt;
-
-  &lt;div class=&quot;lomake-ryhma&quot;&gt;
-    &lt;label class=&quot;lomake-label&quot;&gt;3. Mitä työssä tehdään?&lt;/label&gt;
-    &lt;p class=&quot;lomake-ohje&quot;&gt;
-      Kerro konkreettisesti, millaisia työpäiviä ammatissa on.
-      Mitä asioita tehdään käsillä tai koneilla?
-    &lt;/p&gt;
-    &lt;&lt;textbox &quot;$tyotehtavat&quot; &quot;&quot; 4 40&gt;&gt;
-  &lt;/div&gt;
-
-  &lt;div class=&quot;lomake-ryhma&quot;&gt;
-    &lt;label class=&quot;lomake-label&quot;&gt;4. Missä työpaikoissa tätä työtä tehdään?&lt;/label&gt;
-    &lt;p class=&quot;lomake-ohje&quot;&gt;
-      Esimerkiksi leipomot, tehtaat, kaupat, ravintolat, koulut, sairaalat.
-    &lt;/p&gt;
-    &lt;&lt;textbox &quot;$tyopaikat&quot; &quot;&quot; 4 40&gt;&gt;
-  &lt;/div&gt;
-
-  &lt;div class=&quot;lomake-ryhma&quot;&gt;
-    &lt;label class=&quot;lomake-label&quot;&gt;5. Millaisia taitoja ja ominaisuuksia työssä tarvitaan?&lt;/label&gt;
-    &lt;p class=&quot;lomake-ohje&quot;&gt;
-      Esim. huolellisuus, käsillä tekeminen, tiimityö, täsmällisyys,
-      siisteys, kielitaito.
-    &lt;/p&gt;
-    &lt;&lt;textbox &quot;$vahvuudet&quot; &quot;&quot; 6 40&gt;&gt;
-  &lt;/div&gt;
-
-  &lt;div class=&quot;lomake-ryhma&quot;&gt;
-    &lt;label class=&quot;lomake-label&quot;&gt;6. Mikä tässä työssä voisi olla sinulle kivaa?&lt;/label&gt;
-    &lt;p class=&quot;lomake-ohje&quot;&gt;
-      Mieti, mitkä asiat voisivat innostaa sinua tässä ammatissa.
-    &lt;/p&gt;
-    &lt;&lt;textbox &quot;$hyvatPuolet&quot; &quot;&quot;6 40&gt;&gt;
-  &lt;/div&gt;
-
-  &lt;div class=&quot;lomake-ryhma&quot;&gt;
-    &lt;label class=&quot;lomake-label&quot;&gt;7. Mitkä asiat voisivat olla vaikeita tai raskaita?&lt;/label&gt;
-    &lt;p class=&quot;lomake-ohje&quot;&gt;
-      Esim. kiire, aikaiset aamut, fyysinen työ, kuumuus, tarkkuus.
-    &lt;/p&gt;
-    &lt;&lt;textbox &quot;$haasteet&quot; &quot;&quot; 6 40&gt;&gt;
-  &lt;/div&gt;
-
-  &lt;div class=&quot;lomake-ryhma&quot;&gt;
-    &lt;label class=&quot;lomake-label&quot;&gt;8. Palkka ja työllistyminen&lt;/label&gt;
-    &lt;p class=&quot;lomake-ohje&quot;&gt;
-      Selvitä tai arvioi: millainen palkka tässä työssä voi olla ja
-      millaiset mahdollisuudet on saada töitä tulevaisuudessa?
-    &lt;/p&gt;
-    &lt;&lt;textbox &quot;$palkkaus&quot; &quot;&quot; 2 40&gt;&gt;
-  &lt;/div&gt;
-
-  &lt;div class=&quot;lomake-ryhma&quot;&gt;
-    &lt;label class=&quot;lomake-label&quot;&gt;9. Oma pohdintasi tulevaisuudesta&lt;/label&gt;
-    &lt;p class=&quot;lomake-ohje&quot;&gt;
-      Voisitko kuvitella itsesi tähän ammattiin?
-      Mitä sinun pitäisi vielä oppia tai harjoitella?
-    &lt;/p&gt;
-    &lt;&lt;textbox &quot;$yhteenvetoOmaNakyma&quot;  &quot;&quot; 8 40&gt;&gt;
-  &lt;/div&gt;
-
-  &lt;div class=&quot;intro-nappi&quot; style=&quot;margin-top:1.5rem;&quot;&gt;
-    [[Näytä yhteenveto vastauksista-&gt;Ammattitutkimus: yhteenveto]]
+  
+  &lt;div class=&quot;intro-nappi&quot;&gt;
+    [[Tutustu alan koulutuksiin-&gt;Valitse alue]]
   &lt;/div&gt;
 &lt;/div&gt;
-</tw-passagedata><tw-passagedata pid="6" name="Ammattitesti: alku" tags="" position="400,325" size="100,100">
+</tw-passagedata><tw-passagedata pid="5" name="Ammattitesti: alku" tags="" position="400,325" size="100,100">
 &lt;h1&gt;Elintarvikeala – sopiiko se minulle?&lt;/h1&gt;
 
 &lt;p&gt;
@@ -856,53 +766,7 @@ Tässä testissä vastaat kysymyksiin, jotka liittyvät elintarvikealaan ja siel
 
 
 &lt;/div&gt;
-</tw-passagedata><tw-passagedata pid="7" name="Ammattitutkimus: yhteenveto" tags="" position="825,500" size="100,100">
-&lt;div class=&quot;quiz-page&quot;&gt;
-  &lt;h1&gt;Ammattitutkimuksen yhteenveto&lt;/h1&gt;
-  &lt;hr&gt;
-
-  &lt;p&gt;
- Alla on yhteenveto vastauksistasi. Voit ladata vastaukset tekstitiedostona ja kopioida tekstin omaan Google Docsiin tai Google Slidesiin.
-  &lt;/p&gt;
-
-  &lt;h2&gt;Valittu ammatti&lt;/h2&gt;
-  &lt;p&gt;&lt;strong&gt;Ammatti:&lt;/strong&gt; &lt;&lt;print $ammattiNimi&gt;&gt;&lt;/p&gt;
-
-  &lt;h2&gt;Koulutuspolku ammattiin&lt;/h2&gt;
-  &lt;p&gt;&lt;&lt;print $koulutusPolku&gt;&gt;&lt;/p&gt;
-
-  &lt;h2&gt;Työtehtävät&lt;/h2&gt;
-  &lt;p&gt;&lt;&lt;print $tyotehtavat&gt;&gt;&lt;/p&gt;
-
-  &lt;h2&gt;Mahdolliset työpaikat&lt;/h2&gt;
-  &lt;p&gt;&lt;&lt;print $tyopaikat&gt;&gt;&lt;/p&gt;
-
-  &lt;h2&gt;Ammatin vaatimat vahvuudet&lt;/h2&gt;
-  &lt;p&gt;&lt;&lt;print $vahvuudet&gt;&gt;&lt;/p&gt;
-
-  &lt;h2&gt;Hyvät puolet&lt;/h2&gt;
-  &lt;p&gt;&lt;&lt;print $hyvatPuolet&gt;&gt;&lt;/p&gt;
-
-  &lt;h2&gt;Haasteet&lt;/h2&gt;
-  &lt;p&gt;&lt;&lt;print $haasteet&gt;&gt;&lt;/p&gt;
-
-  &lt;h2&gt;Palkkaus&lt;/h2&gt;
-  &lt;p&gt;&lt;&lt;print $palkkaus&gt;&gt;&lt;/p&gt;
-
-  &lt;h2&gt;Oma yhteenvetosi&lt;/h2&gt;
-  &lt;p&gt;&lt;&lt;print $yhteenvetoOmaNakyma&gt;&gt;&lt;/p&gt;
-
-  &lt;div class=&quot;intro-nappi&quot;&gt;&lt;div class=&quot;intro-nappi&quot;&gt;
-  &lt;a href=&quot;javascript:void(0)&quot;
-     class=&quot;macro-link&quot;
-     onclick=&quot;downloadAmmattitutkimus()&quot;&gt;
-    Lataa vastaukset tiedostona
-  &lt;/a&gt;
-&lt;/div&gt;
-   
-   &lt;/div&gt;
-&lt;/div&gt;
-</tw-passagedata><tw-passagedata pid="8" name="StoryHeader" tags="" position="875,0" size="100,100">&lt;div class=&quot;navbar-fixed&quot;&gt;
+</tw-passagedata><tw-passagedata pid="6" name="StoryHeader" tags="" position="875,0" size="100,100">&lt;div class=&quot;navbar-fixed&quot;&gt;
   &lt;&lt;button &quot;← Taaksepäin&quot;&gt;&gt;
     &lt;&lt;run Engine.backward()&gt;&gt;
   &lt;&lt;/button&gt;&gt;
@@ -911,7 +775,7 @@ Tässä testissä vastaat kysymyksiin, jotka liittyvät elintarvikealaan ja siel
     &lt;&lt;run Engine.forward()&gt;&gt;
   &lt;&lt;/button&gt;&gt;
 &lt;/div&gt;
-</tw-passagedata><tw-passagedata pid="9" name="Kansi" tags="" position="475,75" size="100,100">&lt;&lt;script&gt;&gt;
+</tw-passagedata><tw-passagedata pid="7" name="Kansi" tags="" position="475,75" size="100,100">&lt;&lt;script&gt;&gt;
 $(&#39;body&#39;).removeClass(&#39;hide-navbar&#39;);
 &lt;&lt;/script&gt;&gt;
 
@@ -927,7 +791,7 @@ $(&#39;body&#39;).addClass(&#39;hide-navbar&#39;);
 
       &lt;/div&gt;
 &lt;/a&gt;
-</tw-passagedata><tw-passagedata pid="10" name="Kysymys 2" tags="" position="400,575" size="100,100">&lt;h2&gt;Kysymys 2 / 10&lt;/h2&gt;
+</tw-passagedata><tw-passagedata pid="8" name="Kysymys 2" tags="" position="400,575" size="100,100">&lt;h2&gt;Kysymys 2 / 10&lt;/h2&gt;
 
 &lt;p&gt;Onko minulle ok tehdä työtä, jossa seistään ja liikutaan paljon?&lt;/p&gt;
 
@@ -947,7 +811,7 @@ $(&#39;body&#39;).addClass(&#39;hide-navbar&#39;);
 &lt;&lt;link &quot;Ei&quot;&gt;&gt;
   &lt;&lt;goto &quot;Kysymys 3&quot;&gt;&gt;
 &lt;&lt;/link&gt;&gt;
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="11" name="Kysymys 3" tags="" position="400,700" size="100,100">&lt;h2&gt;Kysymys 3 / 10&lt;/h2&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="9" name="Kysymys 3" tags="" position="400,700" size="100,100">&lt;h2&gt;Kysymys 3 / 10&lt;/h2&gt;
 
 &lt;p&gt;Pystynkö noudattamaan ohjeita ja sääntöjä tarkasti?&lt;/p&gt;
 
@@ -966,7 +830,7 @@ $(&#39;body&#39;).addClass(&#39;hide-navbar&#39;);
 &lt;&lt;link &quot;Ei&quot;&gt;&gt;
   &lt;&lt;goto &quot;Kysymys 4&quot;&gt;&gt;
 &lt;&lt;/link&gt;&gt;
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="12" name="Kysymys 4" tags="" position="400,825" size="100,100">&lt;h2&gt;Kysymys 4 / 10&lt;/h2&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="10" name="Kysymys 4" tags="" position="400,825" size="100,100">&lt;h2&gt;Kysymys 4 / 10&lt;/h2&gt;
 
 &lt;p&gt;Kiinnostavatko minua maut, tuoksut ja ruoan ulkonäkö?&lt;/p&gt;
 
@@ -986,7 +850,7 @@ $(&#39;body&#39;).addClass(&#39;hide-navbar&#39;);
 &lt;&lt;link &quot;Ei&quot;&gt;&gt;
   &lt;&lt;goto &quot;Kysymys 5&quot;&gt;&gt;
 &lt;&lt;/link&gt;&gt;
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="13" name="Kysymys 5" tags="" position="400,950" size="100,100">&lt;h2&gt;Kysymys 5 / 10&lt;/h2&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="11" name="Kysymys 5" tags="" position="400,950" size="100,100">&lt;h2&gt;Kysymys 5 / 10&lt;/h2&gt;
 
 &lt;p&gt;Pystynkö pitämään huolta puhtaudesta ja hygieniasta?&lt;/p&gt;
 
@@ -1006,7 +870,7 @@ $(&#39;body&#39;).addClass(&#39;hide-navbar&#39;);
 &lt;&lt;link &quot;Ei&quot;&gt;&gt;
   &lt;&lt;goto &quot;Kysymys 6&quot;&gt;&gt;
 &lt;&lt;/link&gt;&gt;
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="14" name="Kysymys 6" tags="" position="400,1075" size="100,100">&lt;h2&gt;Kysymys 6 / 10&lt;/h2&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="12" name="Kysymys 6" tags="" position="400,1075" size="100,100">&lt;h2&gt;Kysymys 6 / 10&lt;/h2&gt;
 
 &lt;p&gt;Pystynkö toimimaan, vaikka olisi kiire?&lt;/p&gt;
 
@@ -1026,7 +890,7 @@ $(&#39;body&#39;).addClass(&#39;hide-navbar&#39;);
   &lt;&lt;goto &quot;Kysymys 7&quot;&gt;&gt;
 &lt;&lt;/link&gt;&gt;
 &lt;/div&gt;
-</tw-passagedata><tw-passagedata pid="15" name="Kysymys 7" tags="" position="400,1200" size="100,100">&lt;h2&gt;Kysymys 7 / 10&lt;/h2&gt;
+</tw-passagedata><tw-passagedata pid="13" name="Kysymys 7" tags="" position="400,1200" size="100,100">&lt;h2&gt;Kysymys 7 / 10&lt;/h2&gt;
 
 &lt;p&gt;Sopiiko minulle työ, jossa tehdään asioita yhdessä muiden kanssa?&lt;/p&gt;
 
@@ -1046,7 +910,7 @@ $(&#39;body&#39;).addClass(&#39;hide-navbar&#39;);
 &lt;&lt;link &quot;Ei&quot;&gt;&gt;
   &lt;&lt;goto &quot;Kysymys 8&quot;&gt;&gt;
 &lt;&lt;/link&gt;&gt;
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="16" name="Kysymys 8" tags="" position="400,1325" size="100,100">&lt;h2&gt;Kysymys 8 / 10&lt;/h2&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="14" name="Kysymys 8" tags="" position="400,1325" size="100,100">&lt;h2&gt;Kysymys 8 / 10&lt;/h2&gt;
 
 &lt;p&gt;Sopiiko minulle se, että työajat voivat vaihdella?&lt;/p&gt;
 
@@ -1065,7 +929,7 @@ $(&#39;body&#39;).addClass(&#39;hide-navbar&#39;);
 &lt;&lt;link &quot;Ei&quot;&gt;&gt;
   &lt;&lt;goto &quot;Kysymys 9&quot;&gt;&gt;
 &lt;&lt;/link&gt;&gt;
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="17" name="Kysymys 9" tags="" position="400,1450" size="100,100">&lt;h2&gt;Kysymys 9 / 10&lt;/h2&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="15" name="Kysymys 9" tags="" position="400,1450" size="100,100">&lt;h2&gt;Kysymys 9 / 10&lt;/h2&gt;
 
 &lt;p&gt;Haluanko tehdä työtä, josta on hyötyä muille ihmisille?&lt;/p&gt;
 
@@ -1084,7 +948,7 @@ $(&#39;body&#39;).addClass(&#39;hide-navbar&#39;);
 &lt;&lt;link &quot;Ei&quot;&gt;&gt;
   &lt;&lt;goto &quot;Kysymys 10&quot;&gt;&gt;
 &lt;&lt;/link&gt;&gt;
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="18" name="Kysymys 10" tags="" position="400,1575" size="100,100">&lt;h2&gt;Kysymys 10 / 10&lt;/h2&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="16" name="Kysymys 10" tags="" position="400,1575" size="100,100">&lt;h2&gt;Kysymys 10 / 10&lt;/h2&gt;
 
 &lt;p&gt;Haluanko oppia uusia taitoja ja tehdä asioita käsillä?&lt;/p&gt;
 &lt;div class=&quot;answer-group&quot;&gt;
@@ -1102,7 +966,7 @@ $(&#39;body&#39;).addClass(&#39;hide-navbar&#39;);
 &lt;&lt;link &quot;Ei&quot;&gt;&gt;
   &lt;&lt;goto &quot;Tulos&quot;&gt;&gt;
 &lt;&lt;/link&gt;&gt;
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="19" name="Tulos" tags="" position="400,1700" size="100,100">&lt;h1&gt;Tuloksesi&lt;/h1&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="17" name="Tulos" tags="" position="400,1700" size="100,100">&lt;h1&gt;Tuloksesi&lt;/h1&gt;
 
 &lt;p&gt;Sait &lt;strong&gt;$score / 20 pistettä&lt;/strong&gt;.&lt;/p&gt;
 
@@ -1124,9 +988,14 @@ Elintarvikeala ei ehkä ole sinulle nyt paras vaihtoehto. Se ei ole huono asia �
 
 &lt;div class=&quot;answer-group&quot;&gt;
 
-&lt;&lt;link &quot;Tutustu elinatarvikealan koulutuksiin&quot;&gt;&gt;
+&lt;&lt;link &quot;Tutustu elintarvikealan ammatteihin&quot;&gt;&gt;
   &lt;&lt;set $score = 0&gt;&gt;
-  &lt;&lt;goto &quot;Oppilaitokset&quot;&gt;&gt;
+  &lt;&lt;goto &quot;Ammatinvalinta: alku&quot;&gt;&gt;
+&lt;&lt;/link&gt;&gt;
+
+&lt;&lt;link &quot;Tutustu elintarvikealan koulutuksiin&quot;&gt;&gt;
+  &lt;&lt;set $score = 0&gt;&gt;
+  &lt;&lt;goto &quot;Valitse alue&quot;&gt;&gt;
 &lt;&lt;/link&gt;&gt;
 
 &lt;&lt;link &quot;Poistu&quot;&gt;&gt;
@@ -1134,7 +1003,7 @@ Elintarvikeala ei ehkä ole sinulle nyt paras vaihtoehto. Se ei ole huono asia �
 &lt;&lt;/link&gt;&gt;
 
 &lt;/div&gt;
-</tw-passagedata><tw-passagedata pid="20" name="Valitse alue" tags="" position="925,125" size="100,100">&lt;div class=&quot;quiz-page&quot;&gt;
+</tw-passagedata><tw-passagedata pid="18" name="Valitse alue" tags="" position="925,125" size="100,100">&lt;div class=&quot;quiz-page&quot;&gt;
   &lt;h1&gt;Missä haluat opiskella?&lt;/h1&gt;
   &lt;p&gt;
     Valitse alue, josta haluat katsoa elintarvikealan koulutuksia.
@@ -1146,10 +1015,10 @@ Elintarvikeala ei ehkä ole sinulle nyt paras vaihtoehto. Se ei ole huono asia �
   &lt;/div&gt;
 
   &lt;div class=&quot;intro-nappi&quot;&gt;
-    [[Palaa alkuun-&gt;Start]]
+    [[Palaa alkuun-&gt;start]]
   &lt;/div&gt;
 &lt;/div&gt;
-</tw-passagedata><tw-passagedata pid="21" name="Koulutukset: Elintarvikeala (Uusimaa)" tags="" position="825,250" size="100,100">&lt;div class=&quot;quiz-page&quot;&gt;
+</tw-passagedata><tw-passagedata pid="19" name="Koulutukset: Elintarvikeala (Uusimaa)" tags="" position="825,250" size="100,100">&lt;div class=&quot;quiz-page&quot;&gt;
   &lt;h1&gt;Elintarvikealan koulutusta tarjoavia oppilaitoksia Uudellamaalla&lt;/h1&gt;
   &lt;hr&gt;
 
@@ -1271,11 +1140,11 @@ Elintarvikeala ei ehkä ole sinulle nyt paras vaihtoehto. Se ei ole huono asia �
   &lt;/div&gt;
 
   &lt;div class=&quot;intro-nappi&quot;&gt;
-    [[Siirry ammattitutkimustehtävään-&gt;Ammattitutkimus: lomake]]
+    [[Palaa alkuun-&gt;start]]
     
   &lt;/div&gt;
 &lt;/div&gt;
-</tw-passagedata><tw-passagedata pid="22" name="Koulutukset: Elintarvikeala (Muu Suomi)" tags="" position="975,250" size="100,100">&lt;div class=&quot;quiz-page&quot;&gt;
+</tw-passagedata><tw-passagedata pid="20" name="Koulutukset: Elintarvikeala (Muu Suomi)" tags="" position="950,250" size="100,100">&lt;div class=&quot;quiz-page&quot;&gt;
   &lt;h1&gt;Elintarvikealan koulutuksia muualla Suomessa&lt;/h1&gt;
   &lt;hr&gt;
 
@@ -1382,10 +1251,298 @@ Elintarvikeala ei ehkä ole sinulle nyt paras vaihtoehto. Se ei ole huono asia �
     [[Palaa aluevalintaan-&gt;Valitse alue]]
    &#39;
    &lt;div class=&quot;intro-nappi&quot;&gt;
-    [[Siirry ammattitutkimustehtävään-&gt;Ammattitutkimus: lomake]]
+    [[Palaa alkuun-&gt;start]]
     
   &lt;/div&gt;
   &lt;/div&gt;
+&lt;/div&gt;
+</tw-passagedata><tw-passagedata pid="21" name="Ammatinvalinta: alku" tags="" position="600,300" size="100,100">
+&lt;h2&gt;Tutustu elintarvikealan ammatteihin&lt;/h2&gt;
+
+&lt;p&gt;
+Seuraavaksi pääset tutustumaan palvelualan eri ammatteihin pienen tietokilpailun avulla. Valitse aina se ammatti, joka mielestäsi sopii parhaiten kuvaukseen.
+&lt;/p&gt;
+
+&lt;div class=&quot;intro-nappi&quot;&gt;
+  [[Aloita-&gt;Ammatti 1]]
+&lt;/div&gt;
+</tw-passagedata><tw-passagedata pid="22" name="Ammatti 1" tags="" position="600,425" size="100,100">&lt;h2&gt;Kuka valmistaa leipiä, pullia ja kakkuja leipomossa?&lt;/h2&gt;
+
+&lt;div class=&quot;answer-group&quot;&gt;
+
+&lt;&lt;link &quot;Leipuri-kondiittori&quot;&gt;&gt;
+  &lt;&lt;goto &quot;Ammatti 1 oikein&quot;&gt;&gt;
+&lt;&lt;/link&gt;&gt;
+
+&lt;&lt;link &quot;Elintarvikemyyjä&quot;&gt;&gt;
+  &lt;&lt;goto &quot;Ammatti 1 väärin&quot;&gt;&gt;
+&lt;&lt;/link&gt;&gt;
+
+&lt;&lt;link &quot;Varastotyöntekijä&quot;&gt;&gt;
+  &lt;&lt;goto &quot;Ammatti 1 väärin&quot;&gt;&gt;
+&lt;&lt;/link&gt;&gt;
+
+&lt;/div&gt;
+</tw-passagedata><tw-passagedata pid="23" name="Ammatti 1 oikein" tags="" position="575,525" size="100,100">&lt;h2&gt;Oikein!&lt;/h2&gt;
+
+&lt;p&gt;
+Leipuri-kondiittori valmistaa leipiä, pullia ja kakkuja leipomoissa.
+Työssä käytetään kädentaitoja ja huolellisuutta.
+&lt;/p&gt;
+
+&lt;div class=&quot;intro-nappi&quot;&gt;
+  [[Seuraava-&gt;Ammatti 2]]
+&lt;/div&gt;
+</tw-passagedata><tw-passagedata pid="24" name="Ammatti 1 väärin" tags="" position="675,525" size="100,100">&lt;h2&gt;Melkein!&lt;/h2&gt;
+
+&lt;p&gt;
+Leipuri-kondiittori valmistaa leipiä, pullia ja kakkuja.
+Yritä uudelleen ja mieti, kuka tekee leipomotuotteita.
+&lt;/p&gt;
+
+&lt;div class=&quot;intro-nappi&quot;&gt;
+  [[Yritä uudelleen-&gt;Ammatti 1]]
+&lt;/div&gt;
+</tw-passagedata><tw-passagedata pid="25" name="Ammatti 2" tags="" position="600,625" size="100,100">&lt;h2&gt;Kuka työskentelee elintarviketehtaassa pakkaamassa ruokatuotteita?&lt;/h2&gt;
+
+&lt;div class=&quot;answer-group&quot;&gt;
+
+&lt;&lt;link &quot;Elintarviketyöntekijä&quot;&gt;&gt;
+  &lt;&lt;goto &quot;Ammatti 2 oikein&quot;&gt;&gt;
+&lt;&lt;/link&gt;&gt;
+
+&lt;&lt;link &quot;Tarjoilija&quot;&gt;&gt;
+  &lt;&lt;goto &quot;Ammatti 2 väärin&quot;&gt;&gt;
+&lt;&lt;/link&gt;&gt;
+
+&lt;&lt;link &quot;Myyjä&quot;&gt;&gt;
+  &lt;&lt;goto &quot;Ammatti 2 väärin&quot;&gt;&gt;
+&lt;&lt;/link&gt;&gt;
+
+&lt;/div&gt;
+</tw-passagedata><tw-passagedata pid="26" name="Ammatti 2 oikein" tags="" position="575,725" size="100,100">&lt;h2&gt;Oikein!&lt;/h2&gt;
+
+&lt;p&gt;
+Elintarviketyöntekijä työskentelee tehtaassa ja huolehtii tuotteiden
+valmistuksesta ja pakkaamisesta.
+&lt;/p&gt;
+
+&lt;div class=&quot;intro-nappi&quot;&gt;
+  [[Seuraava-&gt;Ammatti 3]]
+&lt;/div&gt;
+</tw-passagedata><tw-passagedata pid="27" name="Ammatti 2 väärin" tags="" position="675,725" size="100,100">&lt;h2&gt;Melkein!&lt;/h2&gt;
+
+&lt;p&gt;
+Elintarviketyöntekijä työskentelee elintarviketehtaassa.
+Yritä uudelleen!
+&lt;/p&gt;
+
+&lt;div class=&quot;intro-nappi&quot;&gt;
+  [[Yritä uudelleen-&gt;Ammatti 2]]
+&lt;/div&gt;
+</tw-passagedata><tw-passagedata pid="28" name="Ammatti 3" tags="" position="600,825" size="100,100">&lt;h2&gt;Kuka huolehtii, että ruoka on turvallista ja täyttää laatuvaatimukset?&lt;/h2&gt;
+
+&lt;div class=&quot;answer-group&quot;&gt;
+
+&lt;&lt;link &quot;Elintarvikelaborantti&quot;&gt;&gt;
+  &lt;&lt;goto &quot;Ammatti 3 oikein&quot;&gt;&gt;
+&lt;&lt;/link&gt;&gt;
+
+&lt;&lt;link &quot;Kokki&quot;&gt;&gt;
+  &lt;&lt;goto &quot;Ammatti 3 väärin&quot;&gt;&gt;
+&lt;&lt;/link&gt;&gt;
+
+&lt;&lt;link &quot;Kuljettaja&quot;&gt;&gt;
+  &lt;&lt;goto &quot;Ammatti 3 väärin&quot;&gt;&gt;
+&lt;&lt;/link&gt;&gt;
+
+&lt;/div&gt;
+</tw-passagedata><tw-passagedata pid="29" name="Ammatti 3 oikein" tags="" position="575,925" size="100,100">&lt;h2&gt;Oikein!&lt;/h2&gt;
+
+&lt;p&gt;
+Elintarvikelaborantti huolehtii ruoan laadusta ja turvallisuudesta.
+&lt;/p&gt;
+
+&lt;div class=&quot;intro-nappi&quot;&gt;
+  [[Seuraava-&gt;Ammatti 4]]
+&lt;/div&gt;
+</tw-passagedata><tw-passagedata pid="30" name="Ammatti 3 väärin" tags="" position="675,925" size="100,100">&lt;h2&gt;Melkein!&lt;/h2&gt;
+
+&lt;p&gt;
+Elintarvikelaborantti varmistaa, että ruoka on turvallista.
+Yritä uudelleen!
+&lt;/p&gt;
+
+&lt;div class=&quot;intro-nappi&quot;&gt;
+  [[Yritä uudelleen-&gt;Ammatti 3]]
+&lt;/div&gt;
+</tw-passagedata><tw-passagedata pid="31" name="Ammatti 4" tags="" position="600,1025" size="100,100">&lt;h2&gt;Kuka suunnittelee ja kehittää uusia ruoka- ja juomatuotteita?&lt;/h2&gt;
+
+&lt;div class=&quot;answer-group&quot;&gt;
+
+&lt;&lt;link &quot;Elintarviketekniikan insinööri&quot;&gt;&gt;
+  &lt;&lt;goto &quot;Ammatti 4 oikein&quot;&gt;&gt;
+&lt;&lt;/link&gt;&gt;
+
+&lt;&lt;link &quot;Kaupan myyjä&quot;&gt;&gt;
+  &lt;&lt;goto &quot;Ammatti 4 väärin&quot;&gt;&gt;
+&lt;&lt;/link&gt;&gt;
+
+&lt;&lt;link &quot;Siivooja&quot;&gt;&gt;
+  &lt;&lt;goto &quot;Ammatti 4 väärin&quot;&gt;&gt;
+&lt;&lt;/link&gt;&gt;
+
+&lt;/div&gt;
+</tw-passagedata><tw-passagedata pid="32" name="Ammatti 4 oikein" tags="" position="550,1125" size="100,100">&lt;h2&gt;Oikein!&lt;/h2&gt;
+
+&lt;p&gt;
+Elintarviketekniikan insinööri kehittää uusia ruoka- ja juomatuotteita.
+&lt;/p&gt;
+
+&lt;div class=&quot;intro-nappi&quot;&gt;
+  [[Seuraava-&gt;Ammatti 5]]
+&lt;/div&gt;
+</tw-passagedata><tw-passagedata pid="33" name="Ammatti 4 väärin" tags="" position="675,1125" size="100,100">&lt;h2&gt;Melkein!&lt;/h2&gt;
+
+&lt;p&gt;
+Elintarviketekniikan insinööri suunnittelee uusia elintarvikkeita.
+Yritä uudelleen!
+&lt;/p&gt;
+
+&lt;div class=&quot;intro-nappi&quot;&gt;
+  [[Yritä uudelleen-&gt;Ammatti 4]]
+&lt;/div&gt;
+</tw-passagedata><tw-passagedata pid="34" name="Ammatti 5" tags="" position="600,1225" size="100,100">&lt;h2&gt;Kuka vastaa ruoan valmistuksesta esimerkiksi koulussa tai sairaalassa?&lt;/h2&gt;
+
+&lt;div class=&quot;answer-group&quot;&gt;
+
+&lt;&lt;link &quot;Suurtalouskokki&quot;&gt;&gt;
+  &lt;&lt;goto &quot;Ammatti 5 oikein&quot;&gt;&gt;
+&lt;&lt;/link&gt;&gt;
+
+&lt;&lt;link &quot;Varastotyöntekijä&quot;&gt;&gt;
+  &lt;&lt;goto &quot;Ammatti 5 väärin&quot;&gt;&gt;
+&lt;&lt;/link&gt;&gt;
+
+&lt;&lt;link &quot;Kuljetussuunnittelija&quot;&gt;&gt;
+  &lt;&lt;goto &quot;Ammatti 5 väärin&quot;&gt;&gt;
+&lt;&lt;/link&gt;&gt;
+
+&lt;/div&gt;
+</tw-passagedata><tw-passagedata pid="35" name="Ammatti 5 oikein" tags="" position="550,1325" size="100,100">&lt;h2&gt;Oikein!&lt;/h2&gt;
+
+&lt;p&gt;
+Suurtalouskokki valmistaa ruokaa esimerkiksi kouluihin ja sairaaloihin.
+&lt;/p&gt;
+
+&lt;div class=&quot;intro-nappi&quot;&gt;
+  [[Siirry tulokseen-&gt;Ammatinvalinta: tulos]]
+&lt;/div&gt;
+</tw-passagedata><tw-passagedata pid="36" name="Ammatti 5 väärin" tags="" position="675,1325" size="100,100">&lt;h2&gt;Melkein!&lt;/h2&gt;
+
+&lt;p&gt;
+Suurtalouskokki valmistaa ruokaa suurkeittiöissä.
+Yritä uudelleen!
+&lt;/p&gt;
+
+&lt;div class=&quot;intro-nappi&quot;&gt;
+  [[Yritä uudelleen-&gt;Ammatti 5]]
+&lt;/div&gt;
+</tw-passagedata><tw-passagedata pid="37" name="Ammatinvalinta: tulos" tags="" position="600,1450" size="100,100">&lt;h2&gt;Valitse itseäsi kiinnostava elintarvikealan ammatti&lt;/h2&gt;
+
+&lt;p&gt;
+Seuraavaksi pääset valitsemaan yhden elintarvikealan ammatin, joka kiinnostaa sinua eniten.
+Valitse yksi ja tee siitä pieni esittely.
+&lt;/p&gt;
+
+&lt;p&gt;
+Voit etsiä tietoa koulun materiaaleista, netistä, Maistuva ammatti -sivustolta tai kysyä apua opettajalta.
+Vastaa kysymyksiin mahdollisimman tarkasti ja &lt;strong&gt;omin sanoin&lt;/strong&gt;.&lt;br&gt;
+Lopuksi saat vastauksistasi yhteenvedon, jonka voit ladata tiedostona ja kopioida Google Docsiin tai Google Slidesiin viimeistelyä varten.
+&lt;/p&gt;
+
+
+&lt;div class=&quot;intro-nappi&quot;&gt;
+  [[Aloita-&gt;Valitse ammatti]]
+&lt;/div&gt;
+</tw-passagedata><tw-passagedata pid="38" name="Valitse ammatti" tags="" position="600,1575" size="100,100">&lt;h2&gt;Valitse yksi elintarvikealan ammatti&lt;/h2&gt;
+
+&lt;p&gt;Valitse yksi ammatti ja jatka.&lt;/p&gt;
+
+&lt;div class=&quot;answer-group&quot;&gt;
+
+&lt;&lt;link &quot;Leipuri-kondiittori&quot;&gt;&gt;
+  &lt;&lt;set $ammatti = &quot;Leipuri-kondiittori&quot;&gt;&gt;
+  &lt;&lt;goto &quot;Ammattitehtävä&quot;&gt;&gt;
+&lt;&lt;/link&gt;&gt;
+
+&lt;&lt;link &quot;Elintarviketyöntekijä&quot;&gt;&gt;
+  &lt;&lt;set $ammatti = &quot;Elintarviketyöntekijä&quot;&gt;&gt;
+  &lt;&lt;goto &quot;Ammattitehtävä&quot;&gt;&gt;
+&lt;&lt;/link&gt;&gt;
+
+&lt;&lt;link &quot;Suurtalouskokki&quot;&gt;&gt;
+  &lt;&lt;set $ammatti = &quot;Suurtalouskokki&quot;&gt;&gt;
+  &lt;&lt;goto &quot;Ammattitehtävä&quot;&gt;&gt;
+&lt;&lt;/link&gt;&gt;
+
+&lt;&lt;link &quot;Elintarvikelaborantti&quot;&gt;&gt;
+  &lt;&lt;set $ammatti = &quot;Elintarvikelaborantti&quot;&gt;&gt;
+  &lt;&lt;goto &quot;Ammattitehtävä&quot;&gt;&gt;
+&lt;&lt;/link&gt;&gt;
+
+&lt;&lt;link &quot;Elintarviketekniikan insinööri&quot;&gt;&gt;
+  &lt;&lt;set $ammatti = &quot;Elintarviketekniikan insinööri&quot;&gt;&gt;
+  &lt;&lt;goto &quot;Ammattitehtävä&quot;&gt;&gt;
+&lt;&lt;/link&gt;&gt;
+
+&lt;&lt;link &quot;Elintarvikemyyjä&quot;&gt;&gt;
+  &lt;&lt;set $ammatti = &quot;Elintarvikemyyjä&quot;&gt;&gt;
+  &lt;&lt;goto &quot;Ammattitehtävä&quot;&gt;&gt;
+&lt;&lt;/link&gt;&gt;
+
+&lt;&lt;link &quot;Elintarvikepakkaaja&quot;&gt;&gt;
+  &lt;&lt;set $ammatti = &quot;Elintarvikepakkaaja&quot;&gt;&gt;
+  &lt;&lt;goto &quot;Ammattitehtävä&quot;&gt;&gt;
+&lt;&lt;/link&gt;&gt;
+
+&lt;/div&gt;
+</tw-passagedata><tw-passagedata pid="39" name="Ammattitehtävä" tags="" position="850,725" size="100,100">&lt;h2&gt;Esitelmä ammatista: $ammatti&lt;/h2&gt;
+
+&lt;p&gt;Täytä alle tiedot valitsemastasi elintarvikealan ammatista.&lt;/p&gt;
+
+&lt;div class=&quot;lomake-ryhma&quot;&gt;
+
+&lt;p&gt;&lt;strong&gt;Mitä tässä työssä tehdään?&lt;/strong&gt;&lt;/p&gt;
+&lt;textarea placeholder=&quot;Esim. ruoan valmistus, leipominen, pakkaaminen, tuotteiden tarkistus...&quot;&gt;&lt;/textarea&gt;
+
+&lt;p&gt;&lt;strong&gt;Missä töitä tehdään?&lt;/strong&gt;&lt;/p&gt;
+&lt;textarea placeholder=&quot;Esim. leipomot, tehtaat, kaupat, koulut, sairaalat, ravintolat...&quot;&gt;&lt;/textarea&gt;
+
+&lt;p&gt;&lt;strong&gt;Millaista työaika yleensä on?&lt;/strong&gt;&lt;/p&gt;
+&lt;textarea placeholder=&quot;Esim. aamu-, ilta- tai vuorotyö. Onko viikonlopputöitä?&quot;&gt;&lt;/textarea&gt;
+
+&lt;p&gt;&lt;strong&gt;Missä tätä ammattia voi opiskella?&lt;/strong&gt;&lt;/p&gt;
+&lt;textarea placeholder=&quot;Oppilaitokset ja paikkakunnat. Voit käyttää Opintopolku.fi:tä apuna.&quot;&gt;&lt;/textarea&gt;
+
+&lt;p&gt;&lt;strong&gt;Mitä taitoja ja ominaisuuksia työssä tarvitaan?&lt;/strong&gt;&lt;/p&gt;
+&lt;textarea placeholder=&quot;Esim. huolellisuus, käsillä tekeminen, tiimityö, siisteys...&quot;&gt;&lt;/textarea&gt;
+
+&lt;p&gt;&lt;strong&gt;Miksi tämä ammatti voisi sopia sinulle?&lt;/strong&gt;&lt;/p&gt;
+&lt;textarea placeholder=&quot;Omat ajatukset ja tulevaisuuden haaveet...&quot;&gt;&lt;/textarea&gt;
+
+&lt;/div&gt;
+
+&lt;div class=&quot;intro-nappi&quot;&gt;
+
+  &lt;a href=&quot;javascript:void(0)&quot;
+     class=&quot;macro-link&quot;
+     onclick=&quot;downloadAmmattitutkimus()&quot;&gt;
+    Lataa vastaukset tiedostona
+  &lt;/a&gt;
+
+  [[Valmis-&gt;Loppusivu]]
+
 &lt;/div&gt;
 </tw-passagedata></tw-storydata>
 	<script id="script-sugarcube" type="text/javascript">
