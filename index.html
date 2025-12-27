@@ -582,6 +582,56 @@ iframe #passages .intro-nappi a {
 a.macro-link.btn--danger {
   pointer-events: auto;
 }
+/* Estä Google Sitesin fonttien pienennys iframe:ssa */
+iframe #passages,
+iframe #passages .passage,
+iframe #passages p,
+iframe #passages li,
+iframe #passages span,
+iframe #passages div {
+  font-size: 16px !important;
+  line-height: 1.7 !important;
+}
+
+/* Otsikot takaisin näkyviksi */
+iframe #passages h1 {
+  font-size: 2.2rem !important;
+}
+iframe #passages h2 {
+  font-size: 1.6rem !important;
+}
+iframe #passages h3 {
+  font-size: 1.25rem !important;
+}
+
+/* Napit luettaviksi */
+iframe #passages a {
+  font-size: 0.95rem !important;
+}
+/* ABSOLUUTTINEN KORJAUS GOOGLE SITES -NAPPEIHIN */
+iframe a.macro-link,
+iframe .answer-group a.macro-link,
+iframe .intro-nappi a.macro-link {
+  display: inline-flex !important;
+  width: auto !important;
+  min-width: unset !important;
+  max-width: max-content !important;
+  justify-content: center !important;
+  align-items: center !important;
+  text-align: center !important;
+  white-space: nowrap !important;
+}
+
+/* pakota nappirivit vierekkäin */
+iframe .answer-group,
+iframe .intro-nappi {
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: center !important;
+  align-items: center !important;
+  flex-wrap: wrap !important;
+  gap: 0.6rem !important;
+}
 </style><script role="script" id="twine-user-script" type="text/twine-javascript">(function () {
   "use strict";
 
