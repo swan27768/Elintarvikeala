@@ -552,6 +552,36 @@ tarea,
 #passages .passage .cover-link {
   text-decoration: none !important;
 }
+/* GOOGLE SITES - KORJAUS NAPEILLE */
+iframe #passages .intro-nappi,
+iframe #passages .answer-group {
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: center !important;
+  align-items: center !important;
+  flex-wrap: wrap !important;
+}
+
+/* estä Sitesin block-levitys */
+iframe #passages .intro-nappi a,
+iframe #passages .answer-group a {
+  display: inline-flex !important;
+  width: auto !important;
+  min-width: 160px !important;
+  justify-content: center !important;
+  align-items: center !important;
+  text-align: center !important;
+}
+
+/* estä koko rivin leveys */
+iframe #passages .answer-group a,
+iframe #passages .intro-nappi a {
+  max-width: fit-content !important;
+}
+/* Kaikki vaaranapit klikkautuvat kansisivulle */
+a.macro-link.btn--danger {
+  pointer-events: auto;
+}
 </style><script role="script" id="twine-user-script" type="text/twine-javascript">(function () {
   "use strict";
 
@@ -587,7 +617,7 @@ tarea,
       exit.textContent = "Poistu";
       exit.onclick = () => {
         if (confirm("Haluatko varmasti poistua tehtävästä?")) {
-          Engine.play("Start");
+          Engine.play("Kansi");
         }
       };
 
@@ -660,6 +690,12 @@ window.confirmExitStory = function () {
     window.close();
   }
 };
+window.confirmExitStory = function () {
+  SugarCube.Engine.play('Kansi');
+};
+$(document).on('click', 'a.macro-link.btn--danger', function () {
+  SugarCube.Engine.play('Kansi');
+});
 </script><tw-passagedata pid="1" name="StoryInit" tags="" position="750,0" size="100,100">&lt;&lt;set $score = 0&gt;&gt;
 
 &lt;&lt;set $hideNavbar = true&gt;&gt;
@@ -1286,8 +1322,7 @@ Seuraavaksi pääset tutustumaan palvelualan eri ammatteihin pienen tietokilpail
 </tw-passagedata><tw-passagedata pid="23" name="Ammatti 1 oikein" tags="" position="575,525" size="100,100">&lt;h2&gt;Oikein!&lt;/h2&gt;
 
 &lt;p&gt;
-Leipuri-kondiittori valmistaa leipiä, pullia ja kakkuja leipomoissa.
-Työssä käytetään kädentaitoja ja huolellisuutta.
+Leipuri-kondiittori valmistaa leipiä, pullia ja kakkuja leipomoissa. Työssä käytetään kädentaitoja ja huolellisuutta.
 &lt;/p&gt;
 
 &lt;div class=&quot;intro-nappi&quot;&gt;
@@ -1296,8 +1331,7 @@ Työssä käytetään kädentaitoja ja huolellisuutta.
 </tw-passagedata><tw-passagedata pid="24" name="Ammatti 1 väärin" tags="" position="675,525" size="100,100">&lt;h2&gt;Melkein!&lt;/h2&gt;
 
 &lt;p&gt;
-Leipuri-kondiittori valmistaa leipiä, pullia ja kakkuja.
-Yritä uudelleen ja mieti, kuka tekee leipomotuotteita.
+Leipuri-kondiittori valmistaa leipiä, pullia ja kakkuja. Yritä uudelleen ja mieti, kuka tekee leipomotuotteita.
 &lt;/p&gt;
 
 &lt;div class=&quot;intro-nappi&quot;&gt;
@@ -1323,8 +1357,7 @@ Yritä uudelleen ja mieti, kuka tekee leipomotuotteita.
 </tw-passagedata><tw-passagedata pid="26" name="Ammatti 2 oikein" tags="" position="575,725" size="100,100">&lt;h2&gt;Oikein!&lt;/h2&gt;
 
 &lt;p&gt;
-Elintarviketyöntekijä työskentelee tehtaassa ja huolehtii tuotteiden
-valmistuksesta ja pakkaamisesta.
+Elintarviketyöntekijä työskentelee tehtaassa ja huolehtii tuotteiden valmistuksesta ja pakkaamisesta.
 &lt;/p&gt;
 
 &lt;div class=&quot;intro-nappi&quot;&gt;
@@ -1333,8 +1366,7 @@ valmistuksesta ja pakkaamisesta.
 </tw-passagedata><tw-passagedata pid="27" name="Ammatti 2 väärin" tags="" position="675,725" size="100,100">&lt;h2&gt;Melkein!&lt;/h2&gt;
 
 &lt;p&gt;
-Elintarviketyöntekijä työskentelee elintarviketehtaassa.
-Yritä uudelleen!
+Elintarviketyöntekijä työskentelee elintarviketehtaassa. Yritä uudelleen!
 &lt;/p&gt;
 
 &lt;div class=&quot;intro-nappi&quot;&gt;
@@ -1369,8 +1401,7 @@ Elintarvikelaborantti huolehtii ruoan laadusta ja turvallisuudesta.
 </tw-passagedata><tw-passagedata pid="30" name="Ammatti 3 väärin" tags="" position="675,925" size="100,100">&lt;h2&gt;Melkein!&lt;/h2&gt;
 
 &lt;p&gt;
-Elintarvikelaborantti varmistaa, että ruoka on turvallista.
-Yritä uudelleen!
+Elintarvikelaborantti varmistaa, että ruoka on turvallista. Yritä uudelleen!
 &lt;/p&gt;
 
 &lt;div class=&quot;intro-nappi&quot;&gt;
@@ -1405,8 +1436,7 @@ Elintarviketekniikan insinööri kehittää uusia ruoka- ja juomatuotteita.
 </tw-passagedata><tw-passagedata pid="33" name="Ammatti 4 väärin" tags="" position="675,1125" size="100,100">&lt;h2&gt;Melkein!&lt;/h2&gt;
 
 &lt;p&gt;
-Elintarviketekniikan insinööri suunnittelee uusia elintarvikkeita.
-Yritä uudelleen!
+Elintarviketekniikan insinööri suunnittelee uusia elintarvikkeita. Yritä uudelleen!
 &lt;/p&gt;
 
 &lt;div class=&quot;intro-nappi&quot;&gt;
@@ -1441,8 +1471,7 @@ Suurtalouskokki valmistaa ruokaa esimerkiksi kouluihin ja sairaaloihin.
 </tw-passagedata><tw-passagedata pid="36" name="Ammatti 5 väärin" tags="" position="675,1325" size="100,100">&lt;h2&gt;Melkein!&lt;/h2&gt;
 
 &lt;p&gt;
-Suurtalouskokki valmistaa ruokaa suurkeittiöissä.
-Yritä uudelleen!
+Suurtalouskokki valmistaa ruokaa suurkeittiöissä. Yritä uudelleen!
 &lt;/p&gt;
 
 &lt;div class=&quot;intro-nappi&quot;&gt;
