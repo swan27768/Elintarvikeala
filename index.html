@@ -588,49 +588,51 @@ tarea,
 
   white-space: nowrap !important;
 }
-</style><script role="script" id="twine-user-script" type="text/twine-javascript">(function () {
+</style><script role="script" id="twine-user-script" type="text/twine-javascript">/* ========= NAVBAR – GOOGLE SITES SAFE ========= */
+(function () {
   "use strict";
+
+  function ensureNavbar() {
+    if (document.querySelector(".navbar-fixed")) return;
+
+    const nav = document.createElement("div");
+    nav.className = "navbar-fixed";
+
+    const back = document.createElement("button");
+    back.className = "btn nav-back";
+    back.type = "button";
+    back.textContent = "← Takaisin";
+
+    const exit = document.createElement("button");
+    exit.className = "btn btn--danger nav-exit";
+    exit.type = "button";
+    exit.textContent = "Poistu";
+
+    nav.append(back, exit);
+    document.body.appendChild(nav);
+  }
 
   $(document).on(":passagestart", function (event) {
     if (!event || !event.passage) return;
-
-    const body = document.body;
-    const name = event.passage.name;
     const tags = event.passage.tags || [];
 
-    /* KANSISIVU */
-    if (tags.includes("cover")) {
-      body.classList.add("hide-navbar");
-      return;
-    }
+    if (tags.includes("cover")) document.body.classList.add("hide-navbar");
+    else document.body.classList.remove("hide-navbar");
 
-    /* MUUT SIVUT */
-    body.classList.remove("hide-navbar");
-
-    if (!document.querySelector(".navbar-fixed")) {
-      const nav = document.createElement("div");
-      nav.className = "navbar-fixed";
-
-      const back = document.createElement("button");
-      back.className = "btn";
-      back.textContent = "← Takaisin";
-      back.onclick = () => {
-        if (State.length > 0) Engine.backward();
-      };
-
-      const exit = document.createElement("button");
-      exit.className = "btn btn--danger";
-      exit.textContent = "Poistu";
-      exit.onclick = () => {
-        if (confirm("Haluatko varmasti poistua tehtävästä?")) {
-          Engine.play("Kansi");
-        }
-      };
-
-      nav.append(back, exit);
-      document.body.appendChild(nav);
-    }
+    ensureNavbar();
   });
+
+  // delegoidut klikit = toimivat myös iframe:ssa
+  $(document).on("click", ".navbar-fixed .nav-back", function (e) {
+    e.preventDefault();
+    try { Engine.backward(); } catch (e) {}
+  });
+
+  $(document).on("click", ".navbar-fixed .nav-exit", function (e) {
+    e.preventDefault();
+    try { Engine.play("Kansi"); } catch (e) {}
+  });
+
 })();
 
 (function () {
