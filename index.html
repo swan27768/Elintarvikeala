@@ -615,6 +615,39 @@ tarea,
 
   white-space: nowrap !important;
 }
+/* ============================================================
+   SAAVUTETTAVUUS – SELKEÄ FONTTEJEN SKAALAUS
+   ============================================================ */
+
+/* Perusteksti */
+#passages .passage,
+#passages .passage p,
+#passages .passage li,
+#passages .passage span,
+#passages .passage div {
+  font-size: 17.5px !important;     /* aiemmin 16px */
+  line-height: 1.8 !important;
+}
+
+/* Otsikot */
+#passages .passage h1 { font-size: 2.4rem !important; }
+#passages .passage h2 { font-size: 1.8rem !important; }
+#passages .passage h3 { font-size: 1.35rem !important; }
+
+/* Napit */
+#passages a.macro-link,
+#passages a.link-internal,
+#passages button {
+  font-size: 1.05rem !important;
+  letter-spacing: 0.03em;
+}
+
+/* Tekstikenttien kirjoitus */
+#passages textarea,
+#passages input[type="text"] {
+  font-size: 1.05rem !important;
+  line-height: 1.7 !important;
+}
 </style><script role="script" id="twine-user-script" type="text/twine-javascript">/* ========= NAVBAR – GOOGLE SITES SAFE ========= */
 (function () {
   "use strict";
